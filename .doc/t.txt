@@ -1,0 +1,1 @@
+pm2 start --name=cloneue -x nohup -- meteor -p 4500

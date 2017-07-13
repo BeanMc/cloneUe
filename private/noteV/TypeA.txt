@@ -1,0 +1,6 @@
+Type A: mainly used in the USA, Canada, Mexico & Japan,
+2 pins,
+not grounded,
+15 A,
+almost always 100 – 127 V,
+socket compatible with plug type A

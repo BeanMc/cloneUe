@@ -1,0 +1,6 @@
+Type C: commonly used in Europe, South America & Asia,
+2 pins,
+not grounded,
+2.5 A,
+almost always 220 – 240 V,
+socket compatible with plug type C,

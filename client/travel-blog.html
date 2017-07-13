@@ -1,0 +1,27 @@
+
+
+
+<template name="travelblog">
+    {{>pageNavbar}}
+
+    <div class="article-section">
+        <div class="w-container">
+            <div class="travel-blog-typo">The Unusual Travel Blog</div>
+
+            {{#each tour.rawTravel}}
+                <div class="w-row">
+                    {{#each this}}
+                        {{>travelblogview this}}
+
+
+                    {{/each}}
+                </div>
+            {{/each}}
+
+            {{#if tour.next}}
+                <button class="details-button w-button" id="nextpage">OLDER ARTICLES</button>
+            {{/if}}
+
+        </div>
+    </div>
+</template>

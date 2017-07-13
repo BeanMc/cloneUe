@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<!--  This site was created in Webflow. http://www.webflow.com -->
+<!--  Last Published: Sat Dec 31 2016 11:36:00 GMT+0000 (UTC)  -->
+<html data-wf-page="586761d4ab79f5f103a9de79" data-wf-site="585d8b5e413858740564e98e">
+<head>
+    <meta charset="utf-8">
+    <title>trip-note</title>
+    <meta content="trip-note" property="og:title">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+    <script type="text/javascript">
+        WebFont.load({
+            google: {
+                families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]
+            }
+        });
+    </script>
+    <script src="js/modernizr.js" type="text/javascript"></script>
+    <link href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png" rel="apple-touch-icon">
+    <style>
+        .tripnote-header {
+            display: block;
+            overflow: hidden;
+            width: 525.28px;
+            height: 50px;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 50px;
+            padding-left: 50px;
+        }
+
+        .tripnote-page {
+            position: relative;
+            display: block;
+            width: 525.28px;
+            height: 841.89px;
+            margin: 10px auto;
+            background-color: #fff;
+        }
+
+        .tripnote-footer {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            display: block;
+            width: 525.28px;
+            height: 91.89px;
+            margin-right: auto;
+            margin-left: auto;
+            padding: 20px 50px;
+        }
+
+        .tripnote-body {
+            height: 700px;
+            padding-top: 25px;
+            padding-right: 50px;
+            padding-left: 50px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .tripnote-read-text {
+            display: block;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .tripnote-inf-block {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .tripnote-comment {
+            position: absolute;
+            left: 478px;
+            top: 0px;
+            width: 110px;
+            padding: 2px;
+            background-color: #1ece6b;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .tripnote-section-title {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            background-color: #c50e0e;
+            color: #fff;
+            font-size: 20px;
+            line-height: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tripnote-list {
+            padding-left: 20px;
+        }
+
+        .tripnote-list-item {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .tripnote-section-subtitle {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .tripnote-trip-name {
+            margin-bottom: 15px;
+            font-size: 35px;
+            line-height: 40px;
+            font-weight: 700;
+        }
+
+        .flight-wrapper {
+            width: 110%;
+            padding-top: 5px;
+            padding-right: 5px;
+            padding-bottom: 5px;
+            background-color: #292929;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .flight-wrapper.details {
+            background-color: #fff;
+            color: #000;
+            font-size: 10px;
+            text-transform: none;
+        }
+
+        .flight-wrapper.details-2 {
+            background-color: #bdbdbd;
+            color: #000;
+            font-size: 10px;
+            text-transform: none;
+        }
+
+        .flight-wrapper.row-1 {
+            background-color: #fafafa;
+            color: #000;
+            font-size: 10px;
+            text-transform: none;
+        }
+
+        .flight-wrapper.row-2 {
+            background-color: #d6d6d6;
+            color: #242424;
+            font-size: 10px;
+            text-transform: none;
+        }
+
+        .tripnote-styling {
+            background-color: #e9e9e9;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+        }
+
+        .tripnote-image {
+            width: 200px;
+        }
+
+        .tripnote-break-text {
+            margin-bottom: 20px;
+            font-size: 35px;
+            line-height: 35px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .end-of-tripnote {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .tripnote-header-text {
+            display: inline-block;
+            margin-top: 20px;
+            color: #adadad;
+        }
+
+        .tripnote-header-logo {
+            height: 25px;
+            margin-top: 20px;
+            float: right;
+        }
+
+        .tripnote-footer-text {
+            display: inline-block;
+            width: 210px;
+            font-size: 10px;
+            line-height: 14px;
+            font-weight: 700;
+        }
+
+        .tripnote-footer-address {
+            display: inline-block;
+            padding-bottom: 10px;
+            color: #5c5c5c;
+            font-size: 8px;
+            line-height: 10px;
+        }
+
+        .tripnote-flight-date {
+            display: inline-block;
+            width: 105px;
+            margin-left: 10px;
+        }
+
+        .tripnote-flight-flight {
+            display: inline-block;
+            width: 70px;
+            margin-left: 10px;
+        }
+
+        .tripnote-flight-depart {
+            display: inline-block;
+            width: 120px;
+            margin-left: 10px;
+        }
+
+        .tripnote-flight-name {
+            display: inline-block;
+            width: 55px;
+            /*margin-left: 10px;*/
+        }
+
+        .tripnote-footer-copyright {
+            float: right;
+            font-size: 8px;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .tripnote-h1 {
+            margin-top: 10px;
+            color: #353535;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body class="tripnote-styling">
+
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo"  src="images/logo02.png">
+
+    </div>
+
+
+    <div class="tripnote-body">
+        <h1 class="tripnote-h1">TRIP NOTE</h1>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy trừ Trip \ TRIPNOTE WELCOME</div>-->
+            <div class="tripnote-read-text">Dear all,
+                <br>
+                <br id="tripNoteWelcome">
+                <!--A Warm Welcome to Unusual Expedition Travel. Please kindly take note of the following for your packing and preparation for the trip. Thanks for joining us in this trip.-->
+            </div>
+
+        </div>
+
+
+        <div class="tripnote-inf-block" id="prelude">
+            <!--<div class="tripnote-comment">Lấy từ Trip / Name-->
+            <!--<br>-->
+            <!--<br>Lấy trừ Trip / PRELUDE-->
+            <!--<br>-->
+            <!--<br>Lấy từ Tour / Date</div>-->
+            <div class="tripnote-trip-name" id="tripName">ITALY</div>
+
+
+            <!--<div class="tripnote-section-subtitle">Tuscany Rolling Hills</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">One of Italy’s most romanticised regions, Tuscany’s rolling hills, varied coastline and postcard-ready towns. The stunning landscapes of rolling hills lined with cypress trees, where vineyards alternate with olive groves to create a patchwork of incomparable natural beauty that will leave you in awe.</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+
+            <!--<div class="tripnote-section-subtitle">Cinque Terre</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Cinque Terre is a rugged portion of coast on the Italian Riviera. There are 5 towns in the area, each of the towns has its own colorful houses and vineyards clinging to the steep terraces, and fishing boats anchored in harbors.</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+        </div>
+
+
+        <div class="tripnote-inf-block">
+
+            <!--<div class="tripnote-comment">Lấy từ Trip / Name-->
+            <!--<br>-->
+            <!--<br>Lấy trừ Trip / PRELUDE-->
+            <!--<br>-->
+            <!--<br>Lấy từ Tour / Date</div>-->
+
+            <div class="tripnote-section-title">TRIP DATE &amp; TIME</div>
+            <ul class="tripnote-list" id="dateTime">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text"></div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Monday, 19 September 2017 0750AM - Meet at Airport Terminal 3 - MacDonald</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px" src="images/logo02.png"
+             srcset="images/logo02-p-500x76.png 500w, images/logo02-p-800x121.png 800w, images/logo02-p-1080x163.png 1080w, images/logo02-p-1600x242.png 1600w, images/logo02.png 1803w">
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy trừ Trip \ TRIP INCLUSION</div>-->
+            <div class="tripnote-section-title">TRIP INCLUSION</div>
+            <ul class="tripnote-list" id="tripInclusion">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Fully private air-conditioned Vehicle transfer</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Fully private air-conditioned Vehicle transfer</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Fully private air-conditioned Vehicle transfer</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Fully private air-conditioned Vehicle transfer</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy trừ Trip \ TRIP EXCLUSION</div>-->
+            <div class="tripnote-section-title">TRIP EXCLUSION</div>
+            <ul class="tripnote-list" id="tripExclusion">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Return International Air Ticket</div>-->
+                <!--</li>-->
+            </ul>
+
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Return International Air Ticket</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Return International Air Ticket</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Return International Air Ticket</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Return International Air Ticket</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+
+        </div>
+        <!--<div class="tripnote-inf-block">-->
+        <!--<div class="tripnote-comment">Lấy trừ Trip \ MEAL. Chỉ hiện kết quả được chọn</div>-->
+        <!--<div class="tripnote-section-title">MEAL (SPECIAL REQUEST)</div>-->
+        <!--<ul class="tripnote-list">-->
+        <!--<li class="tripnote-list-item">-->
+        <!--<div class="tripnote-read-text" id="mealOrder">..</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+
+
+        <div class="tripnote-inf-block" id="flightSuggestion">
+            <!--<div class="tripnote-comment">Lấy trừ Tour \ FLIGHT SUGGESTION</div>-->
+            <div class="tripnote-section-title">FLIGHT SUGGESTION</div>
+            <div class="flight-wrapper">
+                <div class="tripnote-flight-date">DATE</div>
+                <div class="tripnote-flight-flight">FLIGHT</div>
+                <div class="tripnote-flight-flight">DEPARTURE</div>
+                <div class="tripnote-flight-depart">ARRIVAL</div>
+                <!--<div class="tripnote-flight-depart">FLIGHT</div>-->
+            </div>
+            <!--<div class="flight-wrapper row-1">-->
+            <!--<div class="tripnote-flight-date">Mon 19 Sep 2016</div>-->
+            <!--<div class="tripnote-flight-flight">SQ800</div>-->
+            <!--<div class="tripnote-flight-name">SIN&nbsp;</div>-->
+            <!--<div class="tripnote-flight-name">01:10</div>-->
+            <!--<div class="tripnote-flight-name">PEK</div>-->
+            <!--<div class="tripnote-flight-name">07:25</div>-->
+            <!--</div>-->
+            <!--<div class="flight-wrapper row-2">-->
+            <!--<div class="tripnote-flight-date">Mon 19 Sep 2016</div>-->
+            <!--<div class="tripnote-flight-flight">SQ800</div>-->
+            <!--<div class="tripnote-flight-name">SIN&nbsp;</div>-->
+            <!--<div class="tripnote-flight-name">01:10</div>-->
+            <!--<div class="tripnote-flight-name">PEK</div>-->
+            <!--<div class="tripnote-flight-name">07:25</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px" src="images/logo02.png"
+             srcset="images/logo02-p-500x76.png 500w, images/logo02-p-800x121.png 800w, images/logo02-p-1080x163.png 1080w, images/logo02-p-1600x242.png 1600w, images/logo02.png 1803w">
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block" id="dayPlan">
+            <!--<div class="tripnote-comment">Lấy từ Trip / DAY PLAN-->
+            <!--<br>-->
+            <!--<br>Mục này luôn tách thành 1 trang riêng. Không dính với mục trên lẫn mục dưới</div>-->
+            <div class="tripnote-section-title">ITINERARY</div>
+
+
+            <!--<div class="tripnote-section-subtitle">DAY 1: BEIJING TO INNER MONGOLIA</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day. Climbing of hill for about 30 mins is required for some locations. After Morning Shooting, we will proceed for lunch before heading back to hotel for a short rest break. Continue with the afternoon sunset shoot before returning to hotel for dinner and Overnight at the hotel.</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+
+            <!--<div class="tripnote-section-subtitle">DAY 2: INNER MONGOLIA</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day.&nbsp;</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="tripnote-section-subtitle">DAY 3: INNER MONGOLIA TO GREAT WALL OF CHINA</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day.&nbsp;</div>-->
+            <!--</li>-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early morning sunrise shoot at Great Wall of China, and follow by breakfast before we head back to Beijing</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="tripnote-section-subtitle">DAY 4: SOMETHING</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day. Climbing of hill for about 30 mins is required for some locations. After Morning Shooting, we will proceed for lunch before heading back to hotel for a short rest break. Continue with the afternoon sunset shoot before returning to hotel for dinner and Overnight at the hotel.</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px" src="images/logo02.png"
+             srcset="images/logo02-p-500x76.png 500w, images/logo02-p-800x121.png 800w, images/logo02-p-1080x163.png 1080w, images/logo02-p-1600x242.png 1600w, images/logo02.png 1803w">
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block" id="dayPlan2">
+            <!--<div class="tripnote-comment">Lấy từ Trip / DAY PLAN</div>-->
+
+            <!--<div class="tripnote-section-subtitle">DAY 5: BEIJING TO INNER MONGOLIA</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day. Climbing of hill for about 30 mins is required for some locations. After Morning Shooting, we will proceed for lunch before heading back to hotel for a short rest break. Continue with the afternoon sunset shoot before returning to hotel for dinner and Overnight at the hotel.</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+
+            <!--<div class="tripnote-section-subtitle">DAY 6: INNER MONGOLIA</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day.&nbsp;</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+            <!--<div class="tripnote-section-subtitle">DAY 7: INNER MONGOLIA TO GREAT WALL OF CHINA</div>-->
+            <!--<ul class="tripnote-list">-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day.&nbsp;</div>-->
+            <!--</li>-->
+            <!--<li class="tripnote-list-item">-->
+            <!--<div class="tripnote-read-text">Early morning sunrise shoot at Great Wall of China, and follow by breakfast before we head back to Beijing</div>-->
+            <!--</li>-->
+            <!--</ul>-->
+
+
+        </div>
+
+        <div class="tripnote-inf-block">
+
+            <!--<div class="tripnote-comment">Lấy từ Trip / ITINERARY DISCLAIMER</div>-->
+            <div class="tripnote-section-subtitle">ITINERARY DISCLAIMER</div>
+            <ul class="tripnote-list" id="itinerary">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Early Morning drive in the grassland to the photographic locations. It will depends on the weather to decide where is the best location for the day. Climbing of hill for about 30 mins is required for some locations. After Morning Shooting, we will proceed for lunch before heading back to hotel for a short rest break. Continue with the afternoon sunset shoot before returning to hotel for dinner and Overnight at the hotel.</div>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+
+
+    </div>
+    <div class="tripnote-footer w-clearfix" id="pageFooter-first">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px" src="images/logo02.png"
+             srcset="images/logo02-p-500x76.png 500w, images/logo02-p-800x121.png 800w, images/logo02-p-1080x163.png 1080w, images/logo02-p-1600x242.png 1600w, images/logo02.png 1803w">
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / INCLUDED ACTIVITIES-->
+            <br>
+            <!--<br>Lấy từ Trip / Weather-->
+            <br>
+            <!--<br>Trip / PHYSICAL LEVEL-->
+            <br>
+            <br>Trip / TIME DIFFERENCE
+        </div>
+        <div class="tripnote-section-title">INCLUDED ACTIVITIES</div>
+        <div class="tripnote-read-text" id="includedActivities">..</div>
+        <div class="tripnote-row w-row">
+            <div class="w-col w-col-6">
+                <div class="tripnote-inf-block" id="physicalLevel">
+                    <div class="tripnote-section-subtitle">Physical Level</div>
+
+                    <!--<div class="tripnote-read-text">A fair bit of Walking and climbing is required</div>-->
+
+                </div>
+                <div class="tripnote-inf-block">
+                    <div class="tripnote-section-subtitle">Time Difference</div>
+                    <ul class="tripnote-list" id="timeDifference">
+
+                        <!--<li class="tripnote-list-item">-->
+                        <!--<div class="tripnote-read-text">No Time Difference</div>-->
+                        <!--</li>-->
+                        <!--<li class="tripnote-list-item">-->
+                        <!--<div class="tripnote-read-text">+0800 UTC</div>-->
+                        <!--</li>-->
+
+                        <!--<li class="tripnote-list-item">-->
+                        <!--<div class="tripnote-read-text"><a href="#">http://worldtimeserver.com/</a>-->
+                        <!--</div>-->
+                        <!--</li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="w-col w-col-6">
+                <div class="tripnote-inf-block">
+                    <div class="tripnote-section-subtitle">Weather Condition</div>
+                    <ul class="tripnote-list" id="weatherCondition">
+                        <!--<li class="tripnote-list-item">-->
+                        <!--<div class="tripnote-read-text">Feels like 4 - 20 C Degree</div>-->
+                        <!--</li>-->
+                        <!--<li class="tripnote-list-item">-->
+                        <!--<div class="tripnote-read-text">May Rain and Cloudy</div>-->
+                        <!--</li>-->
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="tripnote-inf-block">
+                <!--<div class="tripnote-comment">Lấy từ Trip / Photographic gears</div>-->
+                <div class="tripnote-section-title">PHOTOGRAPHIC GEARS</div>
+
+                <ul class="tripnote-list" id="photographicGears">
+
+                    <!--<li class="tripnote-list-item">-->
+                    <!--<div class="tripnote-read-text">Compulsory Standard equipment: 16-35mm, 24-70mm, 70-200mm with Tripod and cable release, 1.4 and 2x Extender. (Focal Length Up to 400mm is preferred)</div>-->
+                    <!--</li>-->
+                    <!--<li class="tripnote-list-item">-->
+                    <!--<div class="tripnote-read-text">GND Filter</div>-->
+                    <!--</li>-->
+                    <!--<li class="tripnote-list-item">-->
+                    <!--<div class="tripnote-read-text">Polarizer</div>-->
+                    <!--</li>-->
+
+                </ul>
+            </div>
+            <div class="tripnote-section-title">WHAT TO PACK</div>
+            <div class="tripnote-read-text" id="whatToPack">..</div>
+
+
+
+        </div>
+    </div>
+    <!--<div class="tripnote-inf-block">-->
+        <!--&lt;!&ndash;<div class="tripnote-comment">Lấy từ Trip / Photographic gears</div>&ndash;&gt;-->
+        <!--<div class="tripnote-section-title">PHOTOGRAPHIC GEARS</div>-->
+
+        <!--<ul class="tripnote-list" id="photographicGears">-->
+
+            <!--&lt;!&ndash;<li class="tripnote-list-item">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="tripnote-read-text">Compulsory Standard equipment: 16-35mm, 24-70mm, 70-200mm with Tripod and cable release, 1.4 and 2x Extender. (Focal Length Up to 400mm is preferred)</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li class="tripnote-list-item">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="tripnote-read-text">GND Filter</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li class="tripnote-list-item">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="tripnote-read-text">Polarizer</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="tripnote-section-title">WHAT TO PACK</div>-->
+    <!--<div class="tripnote-read-text" id="whatToPack">..</div>-->
+</div>
+
+
+<div class="tripnote-footer w-clearfix">
+    <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+    <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+    <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+        <br>1, Rochor Canal Road, #06‐34C,
+        <br>Sim Lim Square, Singapore 188504
+        <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+    </div>
+</div></div>
+
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px" src="images/logo02.png"
+             srcset="images/logo02-p-500x76.png 500w, images/logo02-p-800x121.png 800w, images/logo02-p-1080x163.png 1080w, images/logo02-p-1600x242.png 1600w, images/logo02.png 1803w">
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / CLIMATE &amp; CLOTHING</div>-->
+            <div class="tripnote-section-title">CLIMATE &amp; CLOTHING</div>
+            <!--<div class="tripnote-read-text">Warm clothing is recommended for this season of the year, especially in the autumn months of September to October when it can get very cold and windy. It's recommended to wear fleece jacket or down jacket with insulated long pant and proper covered hiking shoes, as we are expected to walk and climb uphill for early sunrise shoot. Temperature will rise and it will be warm in the afternoon so layering of clothing is preferred.</div>-->
+            <ul class="tripnote-list" id="climateClothing">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Rain coat (Compulsory)</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Warm Clothing(Compulsory)</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Long pant and proper trekking shoes (Preferably Waterproof)</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Basic Toiletries – Shampoo and Body Wash (Hotel provides basic amenities)</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / Photographic gears</div>-->
+            <div class="tripnote-section-title">LUGGAGE RESTRICTIONS</div>
+            <ul class="tripnote-list" id="luggageRestrictions">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Please note International / Domestic Airlines allow a maximum of 20kg check in luggage</div>-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+        <div class="tripnote-section-title">HEALTH</div>
+        <div class="tripnote-read-text" id="health">.</div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px"
+             src="data:image/png;base64,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">
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / Currency</div>-->
+            <div class="tripnote-section-title">CURRENCY</div>
+            <ul class="tripnote-list" id="currency">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">China Renminbi (CNY)</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Exchange Rate: <a href="#">http://www.xe.com/</a>-->
+                <!--</div>-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / Spending Money</div>-->
+            <div class="tripnote-section-title">SPENDING MONEY</div>
+            <ul class="tripnote-list" id="spendingMoney">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Every traveller is different and therefore spending money requirements will vary. Some travellers may drink more than others while other travellers like to purchase more souvenirs than most. Please consider your own spending habits when it comes to allowing for drinks, shopping, participating in optional activities, and tipping. Please also remember the following specific recommendations when planning your trip.</div>-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / Phone</div>-->
+            <div class="tripnote-section-title">PHONE &amp; SIM CARD</div>
+            <ul class="tripnote-list" id="phone">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">You can buy the Local SIM Card for phone access. There is no facebook access using China Sim Card.</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">If you are using Data-Roaming from Singapore, about $15 per day. (You are able to access Facebook with data roaming)</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / ELECTRICAL VOLTAGE</div>-->
+            <div class="tripnote-section-title">ELECTRICAL VOLTAGE</div>
+            <ul class="tripnote-list" id="electricalVoltage">
+                <li class="tripnote-list-item"><div class="tripnote-read-text">Socket example</div><img class="tripnote-image" src="http://uploads.webflow.com/585d8b5e413858740564e98e/58677a1f870773086f87aeef_switch-socket-combination-with-indicator-250x250.jpg"></li>
+                <!--<li class="tripnote-list-item">-->
+                    <!--<div class="tripnote-read-text">-->
+                        <!--DASDAD-->
+                    <!--</div>-->
+                    <!--<div class="tripnote-read-text"><img src="images/logo02-p-500x76.png">-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px"
+             src="data:image/png;base64,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">
+
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / MEAL INTRODUCTION</div>-->
+            <div class="tripnote-section-title">MEALS INTRODUCTION</div>
+            <ul class="tripnote-list" id="mealsIntroduction">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">While travelling with us you'll experience the vast array of wonderful food available in the world. We are expected to dine together as a group in a table of 10. We will try our best to accommodate within our means for any Special meals to be requested beforehand, and it will be subjected to availability to serve.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / TRANSPORT</div>-->
+            <div class="tripnote-section-title">TRANSPORT</div>
+            <ul class="tripnote-list" id="transport">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Minivan</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Jeep</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">We will use a 1 Minivan for return transfer from Beijing to Inner Mongolia. During our trip in Inner Mongolia, we will use a Jeep to accommodate 3 persons, so as to ensure that we have enough space and comfort for everyone.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / ACCOMMODATION</div>-->
+            <div class="tripnote-section-title">ACCOMMODATION</div>
+            <ul class="tripnote-list" id="Accommondation">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Local 3 Star Hotel – 五洲假日酒店 Hexingten Chifeng, Inner Mongolia 中国内蒙古自治区赤峰市克什克腾旗五洲假日酒店</div>-->
+                <!--</li>-->
+
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / EMERGENCY CONTACT</div>-->
+            <div class="tripnote-section-title">EMERGENCY CONTACT</div>
+            <ul class="tripnote-list" id="emergency">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">In the case of a genuine crisis or emergency, please contact Unusual Expedition's local ground representative for China on Tel:</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">+65 6591 8811</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">+86 135 1003 3001</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px"
+             src="data:image/png;base64,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">
+
+
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / VISA</div>-->
+            <div class="tripnote-section-title">VISAS</div>
+            <ul class="tripnote-list" id="visas">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Visas are the responsibility of the individual traveller’s. The visa requirements for your trip vary depending on where you are from and where you are going. As a general rule most countries expect that you will have at least 6 months validity on your passport. On arrival visitors may be asked to present return tickets and evidence of means to cover your intended stay.</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">We keep the following information up to date as much as possible, but rules do change - it's important that you check for yourself. Residents from other countries must consult the-->
+                <!--<br> relevant embassies or your travel agent.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <!--<div class="tripnote-comment">Lấy từ Trip / LOCAL CONTACT</div>-->
+            <div class="tripnote-section-title">LOCAL CONTACT</div>
+            <ul class="tripnote-list" id="localContact">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Tour Leader: Joseph Mak</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Tour leader Phone No.1: <strong>+65 9101 8626</strong>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Tour leader Phone No.2: <strong>+86 135 1003 3001</strong>-->
+                <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px"
+             src="data:image/png;base64,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">
+
+
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-break-text">IMPORTANT NOTES</div>
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">TRAVEL INSURANCE</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / TRAVEL INSURANCE</div>-->
+            <ul class="tripnote-list" id="travelInsurance">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Unusual Expedition REQUIRES all participants to purchase their own Travel Insurance with a Minimum Coverage of S$250,000.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">MINIMUM AGE</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / MINIMUM AGE</div>-->
+            <ul class="tripnote-list" id="minimumAge">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">The minimum age for this trip is 18 at the time of travel. Any travellers under the age of 18 must be accompanied by a legal guardian, or in lieu of a legal guardian, by an escort over the age of 18, appointed by their legal guardian. The legal guardian or their designee will be responsible for the traveller under the age of 18 day to day’s care. If a legal guardian elects to designate an escort in their lieu, they will be required to complete and sign a relevant document, to delegate their authority.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">WeATHER CONTINGENCIES</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / WEATHER CONTINGENCIES</div>-->
+            <ul class="tripnote-list" id="weatherContingencies">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Please note that Autumn Season is around September to October. We cannot guarantee that the season will come in time. But base on our experience, this is the best timing to visit as the Changing of leaves during the Autumn season lasts for only 1 week.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">ITINERARY CHANGE</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / ITINERARY CHANGE</div>-->
+            <ul class="tripnote-list" id="itineraryChange">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Due to operational issues outside Unusual Expedition's control this itinerary may sometimes be required to run in reverse.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px"
+             src="data:image/png;base64,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">
+
+
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">GROUP SIZE</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / GROUP SIZE</div>-->
+            <ul class="tripnote-list" id="groupSize">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Maximum of 10 travellers per group.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">ROOM SHARING</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / ROOM SHARING</div>-->
+            <ul class="tripnote-list" id="roomSharing">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Should you be pair up with another traveller for Room Sharing. Please ensure that you have good etiquette to create a fair use of space in the room, to be tidy and to clean up the bathroom after use. If you have snoring causes or sleep disorder, please do opt for Single Room option so as to reduce inconvenience to others.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">YOUR FELLOW TRAVELLER</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / YOUR FELLOW TRAVELLER</div>-->
+            <ul class="tripnote-list" id="yourFollowTraveller">
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">As you travel on a group trip you will be exposed to all the pleasures and maybe some of the frustrations of travelling in a group. Your fellow travellers will probably come from all corners of the world and likely a range of age groups too. We ask you to be understanding of the various needs and preferences of your group - patience with your fellow travellers is sometimes required for the benefit of everyone's travel experience. Remember too that you have responsibilities to the group. If you are requested to be at a place at a certain time, ensure that you don't keep the rest of the group waiting. We have found time and time again that the very best trips we operate are those where the dynamics within the group work well - this takes just a little effort on your part.</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">Due to privacy reasons we are unable to provide you with contact details and any personal information about your fellow travellers booked on your trip prior to departure.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-footer w-clearfix">
+            <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+            <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+            <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+                <br>1, Rochor Canal Road, #06‐34C,
+                <br>Sim Lim Square, Singapore 188504
+                <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tripnote-page">
+    <div class="tripnote-header w-clearfix">
+        <div class="tripnote-header-text">TRIP NOTE</div>
+        <img class="tripnote-header-logo" sizes="165.703125px"
+             src="data:image/png;base64,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">
+
+
+    </div>
+    <div class="tripnote-body">
+        <div class="tripnote-inf-block">
+            <div class="tripnote-section-title">ISSUES ON TRIP</div>
+            <!--<div class="tripnote-comment">Lấy từ Trip / ISSUE ON TRIP</div>-->
+            <ul class="tripnote-list" id="issuesOnTrip">
+
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">While we always endeavour to provide the best possible holiday experience, due to the nature of travel and the areas we visit sometimes things can and do go wrong. Should any issue occur while you are on your trip, it is imperative that you discuss this with your group leader or our local representative straight away so that they can do their best to rectify the problem and save any potential negative impact on the rest of your trip.</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">We recognise that there may be times when your group leader/local partner may not be able to resolve a situation to your satisfaction - if this is the case, please ask the leader to speak to their direct manager.</div>-->
+                <!--</li>-->
+                <!--<li class="tripnote-list-item">-->
+                <!--<div class="tripnote-read-text">You may also choose to provide details in your online feedback, which we ask you to complete within 30 days of the end of your trip. But we do ask you to be aware that it is very difficult for us to provide any practical help after the trip is complete.</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <div class="tripnote-inf-block">
+            <div class="end-of-tripnote">END OF TRIP NOTE</div>
+            <div class="tripnote-read-text"><strong>Copyright Notice</strong>
+            </div>
+            <div class="tripnote-read-text">© Copyright. ALL RIGHTS RESERVED. No part of this publication may be
+                reproduced or transmitted in any form or by any means, electronic or mechanical, including photocopying,
+                recording, or any other information storage and retrieval system, without the written permission of
+                Unusual Expedition Pte Ltd.
+            </div>
+        </div>
+    </div>
+    <div class="tripnote-footer w-clearfix">
+        <div class="tripnote-footer-text">UNUSUAL EXPEDITION PTE LTD</div>
+        <div class="tripnote-footer-copyright">© Copyright. ALL RIGHTS RESERVED.</div>
+        <div class="tripnote-footer-address">TA License: 02513 Company Registration: 201400451K
+            <br>1, Rochor Canal Road, #06‐34C,
+            <br>Sim Lim Square, Singapore 188504
+            <br>Tel: +65 6591 8811 Email: contact@unusualexpedition.com
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+<script src="js/webflow.js" type="text/javascript"></script>
+<!-- [if lte IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
+</html>

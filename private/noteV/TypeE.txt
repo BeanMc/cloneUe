@@ -1,0 +1,6 @@
+Type E: primarily used in France, Belgium, Poland, Slovakia & the Czech Republic,
+        2 pins,
+        grounded,
+        16 A,
+        220 – 240 V,
+        socket compatible with plug types C, E & F,

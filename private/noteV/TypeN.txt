@@ -1,0 +1,6 @@
+Type N: used almost exclusively in Brazil,
+        3 pins,
+        grounded,
+        10 A & 20 A,
+        100 – 240 V,
+        socket compatible with plug types C & N,

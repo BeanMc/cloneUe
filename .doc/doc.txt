@@ -1,0 +1,4 @@
+
+export ROOT_URL=http://dev.chord:4500
+export MONGO_URL=mongodb://localhost:27017/lmss
+export MONGO_OPLOG_URL=mongodb://localhost:27017/local?authSource=lmss

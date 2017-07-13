@@ -1,0 +1,6 @@
+Type M: mainly used in South Africa,
+        3 pins,
+        grounded,
+        15 A,
+        220 – 240 V,
+        socket compatible with plug type M,

@@ -1,0 +1,54 @@
+<template name="viewupcomingtour">
+    {{#with this}}
+        <div class="w-col w-col-4 w-col-stack">
+            <div class="upcoming-tour-div">
+                <div class="upcoming-tour-div-imgframe">
+                    <img class="upcoming-tour-img" src="/cfs/files/image/{{images DayPlan}}">
+                </div>
+                <div class="upcoming-tour-availability">COMING SOON</div>
+                <div class="view-all-tour-upcoming">UPCOMING TOUR</div>
+                <div class="upcoming-tour-destination view-all-tour">{{tourName}}</div>
+                <div class="view-all-tour-details">
+                    <div class="upcoming-tour-date-price-wrapper">
+                        <div class="upcoming-tour-date-wrapper">
+                            <div class="coming-soon-announcement">Will be announced soon</div>
+                        </div>
+                        <div class="tour-money-amount view-all"></div>
+                    </div>
+                    <a class="details-button upcoming-tour-page w-button" href="/singapore/viewtour?tripid={{this._id}}">
+                        DETAILS</a>
+                </div>
+            </div>
+            <!--
+            <div class="upcoming-tour-div">
+                <div class="upcoming-tour-div-imgframe">
+                    <img class="upcoming-tour-img" src="/cfs/files/image/{{images DayPlan}}">
+                </div>
+                <div class="view-all-tour-upcoming">UPCOMING TOUR</div>
+                <div class="upcoming-tour-destination view-all-tour">{{tourName}}</div>
+                <div class="view-all-tour-details">
+                    <div class="w-row">
+                        <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+                            <div class="tour-money-amount view-all"></div>
+                            <div class="tour-money-amount view-all"></div>
+                            <div class="trip-availability view-all"></div>
+                            <div class="tour-money-amount view-all"></div>
+                            <div class="trip-availability view-all">COMING SOON</div>
+                        </div>
+                        <div class="w-col w-col-4 w-col-small-4 w-col-tiny- 4">
+                            <div class="view-all-tour-grid">
+                                <div class="all-tour date-value">...</div>
+                                <div class="date-nonvalue"> to</div>
+                                <div class="all-tour date-value">...</div>
+                            </div>
+                        </div>
+                        <div class="w-clearfix w-col w-col-4 w-col-small-4 w-col-tiny-4"><a
+                                class="details-button w-button" href="/viewtour?tripid={{this._id}}">DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    {{/with}}
+</template>

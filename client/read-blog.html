@@ -1,0 +1,73 @@
+<template name="readblog">
+
+    {{>pageNavbar}}
+    <div class="article-section">
+        <div class="w-container">
+            <div class="travel-blog-typo">The Unusual Travel Blog</div>
+            <div class="w-row">
+
+                {{#with view.[0]}}
+                    <div class="w-col w-col-9">
+                        <div class="article-read-div">
+                            <h1 class="article-headlight">{{Title}}</h1>
+                            <div class="article-author">By  {{Author}}, {{timeFomat createdAt}}</div>
+
+                            <div class="article-read-img-div"><img
+                                    sizes="(max-width: 767px) 96vw, (max-width: 991px) 541px, 700px"
+                                    src="/cfs/files/image/{{Thumbnail.[0]}}"
+                                    srcset="/cfs/files/image/{{Thumbnail.[0]}} 500w, /cfs/files/image/{{Thumbnail.[0]}} 800w, /cfs/files/image/{{Thumbnail.[0]}} 1024w">
+                            </div>
+                            <div class="article-read-paragraph-div">
+                                <p class="article-read-paragraph">{{{Content}}}</p>
+                            </div>
+                            <div class="social-sharing">
+                                <div class="article-author">Share this article:</div>
+                                <div class="social-sharing-row w-row">
+                                    <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4">
+                                        <div class="sharebox w-widget w-widget-facebook">
+                                            <!--<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Funusualexpedition%2F&width=450&layout=standard&action=like&size=small&show_faces=true&share=true&height=80&appId=153944694699538" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>-->
+
+
+                                            {{> facebookLike config}}
+                                        </div>
+                                    </div>
+                                    <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4">
+
+                                    </div>
+                                    <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4">
+
+                                    </div>
+                                    <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4"></div>
+                                    <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4"></div>
+                                    <div class="w-col w-col-2 w-col-small-4 w-col-tiny-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/with}}
+
+
+                <div class="w-col w-col-3">
+                    <div class="latest-article-text">LATEST ARTICLES</div>
+                    {{#each lastest}}
+                        <a href="/singapore/read-blog?id={{this._id}}">
+                            <div class="latest-article-div">
+                                <div class="latest-article-img-div">
+                                    <img class="latest-article-img"
+                                         sizes="(max-width: 767px) 100vw, (max-width: 991px) 167px, 220px"
+                                         src="/cfs/files/image/{{this.Thumbnail.[0]}}"
+                                         srcset="/cfs/files/image/{{this.Thumbnail.[0]}} 500w, /cfs/files/image/{{this.Thumbnail.[0]}} 800w, /cfs/files/image/{{this.Thumbnail.[0]}} 1024w">
+                                </div>
+                                <h4 class="latest-article-title">{{Title}}</h4>
+                                <div class="latest-article-synopsis">{{Synopsis}}&nbsp;</div>
+                            </div>
+                        </a>
+                    {{/each}}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</template>

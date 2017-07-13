@@ -1,0 +1,6 @@
+Type C: mainly used in India,
+        3 pins,
+        grounded,
+        5 A,
+        220 – 240 V,
+        socket compatible with plug types C & D (unsafe compatibility with E & F),

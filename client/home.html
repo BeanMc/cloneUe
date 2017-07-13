@@ -1,0 +1,137 @@
+<template name="home">
+
+    <div class="home-hero">
+        {{#if getTextButton}}
+        <a class="call-to-tour-overlay w-inline-block" href="/{{getLinkButton}}">
+
+
+                {{{getTextButton}}}
+
+                <!--{{else}}-->
+                <!--&lt;!&ndash;<div>UNUSUAL EXPEDITION's</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="call-tour-text">UPCOMING TOURS</div>&ndash;&gt;-->
+                <!--{{image.[0].text}}-->
+
+
+        </a>
+            {{/if}}
+        <div class="hero-slider-web w-slider" data-animation="slide" data-duration="500" data-infinite="1">
+            <div class="w-slider-mask" id="slideimagehome">
+                {{#each image}}
+                    {{#if this}}
+                        <!--{{setButton this.text}}-->
+                        <div class="w-slide" text="{{this.text}}" link="{{this.link}}">
+                            <img   alt=""
+                                   sizes="(max-width: 1920px) 100vw, 1920px"
+                                   src="/cfs/files/image/{{this.view}}">
+                            <a href="{{this.link}}">
+                                                  <!--srcset="/cfs/files/image/{{this.view}} 500w, /cfs/files/image/{{this.view}} 800w, /cfs/files/image/{{this.view}} 1080w, /cfs/files/image/{{this.view}} 1600w, /cfs/files/image/{{this.view}} 1920w">-->
+                            </a>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="home-slide-arrow w-slider-arrow-left">
+                <div class="w-icon-slider-left"></div>
+            </div>
+            <div class="home-slide-arrow w-slider-arrow-right">
+                <div class="w-icon-slider-right"></div>
+            </div>
+            <div class="home-slide-nav w-round w-slider-nav"></div>
+        </div>
+    </div>
+
+    {{>pageNavbar}}
+
+
+    <div>
+        <div class="w-row">
+            <div class="w-col w-col-4 w-hidden-tiny">
+                <div class="home-big-intro"></div>
+            </div>
+            <div class="w-col w-col-8">
+                <div class="w-row">
+                    <div class="w-col w-col-6">
+                        <div class="home-block">
+                            <p class="title-on-img">Private and Exclusive trip<br>to Exotic Destination</p>
+                            <div class="home-grid image01"></div>
+                        </div>
+                    </div>
+                    <div class="w-col w-col-6">
+                        <div class="home-block ">
+                            <div class="home-grid video-grid ">
+                                {{{video}}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-row">
+                    <div class="w-col w-col-6">
+                        <div class="home-block">
+                            <p class="title-on-img">Photography meets<br>Adventure</p>
+                            <div class="home-grid image02"></div>
+                        </div>
+                    </div>
+                    <div class="w-col w-col-6">
+                        <div class="home-block">
+                            <p class="title-on-img">Unique &amp; Complete<br>Experience</p>
+                            <div class="home-grid image04"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="off-the-track">
+            <h1 class="section-header">OFF THE BEATEN TRACK TOURS</h1>
+            <div class="w-container">
+                <div class="w-row">
+                    <div class="w-col w-col-3 w-col-small-3"><img alt=""
+                                                                    class="trans-white-img"
+                                                                  sizes="(max-width: 479px) 217px, (max-width: 767px) 22vw, (max-width: 991px) 167px, 217px"
+                                                                  src="images/Map-icon-Mister-Pixel-Noun-Project.png"
+                                                                  srcset="images/Map-icon-Mister-Pixel-Noun-Project-p-500x417.png 500w, images/Map-icon-Mister-Pixel-Noun-Project.png 590w"
+                                                                  width="217">
+                    </div>
+                    <div class="w-col w-col-9 w-col-small-9">
+                        <p class="white-text-img">"Off the Beaten Track" Tours are specially-crafted to suit
+                            photographers' needs. You are special breed of human being, and we know that you want
+                            awesome pictures and those that can blow off your jaws. We will bring you to places that are
+                            less touristy and even places that you can't find a single human for days.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="exp-the-diff">
+            <h2 class="section-header">EXPERIENCE THE DIFFERENCE</h2>
+            <div class="w-container">
+                <div class="w-row">
+                    <div class="w-col w-col-3 w-col-small-3"><img class="trans-white-img"
+                                                                  sizes="(max-width: 479px) 217px, (max-width: 767px) 22vw, (max-width: 991px) 167px, 217px"
+                                                                  src="images/mountain-side-with-trees-made-up-different-shapes.png"
+                                                                  srcset="images/mountain-side-with-trees-made-up-different-shapes-p-500x500.png 500w, images/mountain-side-with-trees-made-up-different-shapes.png 512w"
+                                                                  width="217">
+                    </div>
+                    <div class="w-col w-col-9 w-col-small-9">
+                        <p class="white-text-img">Join us and experience the difference in our tours. We can control
+                            Everything except Weather. But, we love all weather! Sunny, rainy, windy, stormy weather, as
+                            that is the time to capture the "WOW" moments.
+                            <br>
+                            <br> We teach Basic Handling of Equipment, Fundamental Photography - Composition, Depth of
+                            Field, Lighting to Advance Photography like Photography Intention and Storyboard Telling,
+                            Creative and Abstract Photography. We are in the digital world, so Post Processing
+                            Techniques are important too. If we are given availablity of time during the tour, we will
+                            conduct a short Adobe Lightroom Workshop. Reviewing of Photos will be done as needed during
+                            the trip and before end of the trip. Be amazed that the trip will be acitivites filled and
+                            you will not be bored!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

@@ -1,0 +1,13 @@
+{
+  "name": "hello",
+  "private": true,
+  "scripts": {
+    "start": "meteor --settings settings.json"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "meteor-node-stubs": "~0.2.0",
+    "os": "^0.1.1",
+    "phantom": "^4.0.0"
+  }
+}

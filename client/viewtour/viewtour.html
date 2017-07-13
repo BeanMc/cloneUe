@@ -1,0 +1,1805 @@
+<template name="viewtour">
+    {{> pageNavbar}}
+    {{#with data1}}
+        <!-- Tour quick overview -->
+        <div class="tour-overview-box" id ="tour-view-top">
+            <div class="w-container">
+                <!--Tour image slideshow -->
+                <div class="tour-view-slider w-slider" data-animation="slide" data-duration="50"
+                     data-infinite="1">
+                    <div class="w-slider-mask">
+                        <div class="w-slide" id="slideimage">
+                            {{#each image DayPlan}}
+                                {{#if this}}
+                                    <div class="tour-view-slider-imgframe" style="display: block">
+                                        <img style="width: 100%"
+                                             sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px"
+                                             src="/cfs/files/image/{{this}}"
+                                             srcset="/cfs/files/image/{{this}} 500w, /cfs/files/image/{{this}} 800w, /cfs/files/image/{{this}} 1024w">
+                                    </div>
+                                {{/if}}
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="w-slider-arrow-left">
+                        <div class="w-icon-slider-left"></div>
+                    </div>
+                    <div class="w-slider-arrow-right">
+                        <div class="w-icon-slider-right"></div>
+                    </div>
+                </div>
+                <!--End of Tour image slideshow -->
+
+                <!-- Tour quick information -->
+                <!-- Tour name, destination and overview -->
+                <div class="view-tour-tour-name">
+                    <div class="upcoming-tour-highlighted-div">
+                        <div class="upcoming-tour-highlighted">UNUSUAL EXPEDITION</div>
+                    </div>
+                    <div class="upcoming-tour-destination">{{tourName}}</div>
+                </div>
+                <div class="tour-places"><span><span>{{#each plan}}{{this}}, {{/each}}</span></span></div>
+                <div class="w-row">
+                    {{#each tourOverView}}
+                        <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3">
+                            <img class="travel-icon"
+                                 sizes="(max-width: 479px) 25px, 90px"
+                                 src="/cfs/files/image/{{this}}"
+                                 srcset="/cfs/files/image/{{this}} 500w, /cfs/files/image/{{this}} 512w" width="90">
+                        </div>
+                    {{/each}}
+                </div>
+                <!-- End of Tour name, destination and overview -->
+                <!-- Tour slot, price, availability and booking button -->
+                <div class="tour-details">
+                    <div class="tour-detail-wrapper">
+                        <div class="tour-details-slot-wrapper">
+                            <div class="view-tour-slot-text">SLOTS AVAILABILITY*</div>
+                            <div class="view-tour-available-slot">{{count travel.peopleInTravel travel.maximum}}</div>
+                            <div class="view-tour-maximum-slot">/{{travel.maximum}}</div>
+                        </div>
+                        <div class="tour-detail-date-price-wrapper">
+                            <div class="tourview-date-wrapper">
+                                <div class="date-value">{{datetime travel.tourDateStart}}</div>
+                                <div class="date-nonvalue">to</div>
+                                <div class="date-value">{{datetime travel.tourDateEnd}}</div>
+
+                            </div>
+                            <div class="tour-money-amount">${{price travel.tourPrice}}**</div>
+                        </div>
+                        <div class="tour-information">
+                            <div class="w-row">
+                                <div class="w-col w-col-5">
+                                    <div class="tour-description-fixed">Guide:</div>
+                                </div>
+                                <div class="w-col w-col-7">
+                                    <div class="tour-description-active">{{Instructor}}</div>
+                                </div>
+                            </div>
+                            <div class="w-row">
+                                <div class="w-col w-col-5">
+                                    <div class="tour-description-fixed">Difficulty:</div>
+                                </div>
+                                <div class="w-col w-col-7">
+                                    <div class="tour-description-active">{{Difficulty}}</div>
+                                </div>
+                            </div>
+                            <div class="w-row">
+                                <div class="w-col w-col-5">
+                                    <div class="tour-description-fixed">Weather:</div>
+                                </div>
+                                <div class="w-col w-col-7">
+                                    <div class="tour-description-active">{{Weather}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="book-this-tour details-button w-button" id="scrollBook">BOOK THIS TOUR</button>
+                    </div>
+                    <button class="book-this-tour-mobile details-button w-button">BOOK THIS TOUR</button>
+                    <div class="min-max-people-text minimum-required">*At least {{travel.minimum}} people are needed for
+                        this tour to
+                        start
+                    </div>
+                    <div class="min-max-people-text minimum-required">**Please refer to detail price below</div>
+                </div>
+                <!-- OLD DESIGN
+                <div class="tour-details">
+                    <div class="w-row">
+                        <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+                            <div class="w-row">
+                              <div class="w-clearfix w-col w-col-6">
+                                    <a class="details-button view-single-tour w-button"
+                                       id="booking">BOOK THIS TRIP</a>
+                                </div>
+                                <div class="w-col w-col-6">
+                                    {{#with travel}}
+                                        <div class="tour-money-amount">${{tourPrice.totalPrice}}</div>
+                                        {{#if tourAvailabilitys}}
+                                            <div class="trip-availability"></div>
+                                        {{/if}}
+                {{/with}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-col w-col-6 w-col-small-6 w-col-tiny-6">
+                            <div class="tour-information">
+                                {{#with travel}}
+                                    <div class="w-row">
+                                        <div class="w-col w-col-3">
+                                            <div class="date-value">{{datetime tourDateEnd}}</div>
+                                        </div>
+                                        <div class="w-col w-col-1">
+                                            <div class="date-nonvalue">to</div>
+                                        </div>
+                                        <div class="w-col w-col-8">
+                                           <div class="date-value">{{datetime tourDateStart}}</div>
+                                        </div>
+                                    </div>
+                                {{/with}}
+                            <div class="w-row">
+                                <div class="w-col w-col-4 w-col-medium-6 w-col-small-6 w-col-tiny-6">
+                                    <div class="tour-description-fixed">Instructor:</div>
+                                    <div class="tour-description-fixed">Difficulty:</div>
+                                    <div class="tour-description-fixed">Weather:</div>
+                                </div>
+                                <div class="w-col w-col-8 w-col-medium-6 w-col-small-6 w-col-tiny-6">
+                                    <div class="tour-description-active">{{Instructor}}</div>
+                                    <div class="tour-description-active">{{Difficulty}}</div>
+                                    <div class="tour-description-active">{{Weather}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                -->
+
+                <!-- End of Tour slot, price, availability and booking button -->
+                <!-- End of Tour quick information -->
+            </div>
+        </div>
+        <!-- End of Tour quick overview -->
+
+        <!-- Tour Body -->
+        <div class="article-section">
+            <div class="w-container">
+                <div class="trip-details">
+
+                    <!-- Quick Navigation -->
+                    <p class="tourview-header under-dash">QUICK NAVIGATION:</p>
+                    <div class="quick-navigation-row w-row">
+                        <div class="w-col w-col-4">
+                            <div class="w-row">
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="day-plan" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/calendar.png"
+                                             srcset="/images/calendar-p-500x500.png 500w, /images/calendar.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Day Plan</p>
+
+                                    </div>
+                                </div>
+
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="trip-inclusion" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/climbing.png"
+                                             srcset="/images/climbing-p-500x500.png 500w, /images/climbing.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Trip Inclusion</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="trip-exclusion" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/warning.png"
+                                             srcset="/images/warning-p-500x500.png 500w, /images/warning.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Trip Exclusion</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                            </div>
+                        </div>
+                        <div class="w-col w-col-4">
+                            <div class="w-row">
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="hotel" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/bed.png"
+                                             srcset="/images/bed-p-500x500.png 500w, /images/bed.png 512w" width="60">
+                                        <p class="tour-view-quick-nav-title">Hotel</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="dinning" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/cutlery.png"
+                                             srcset="/images/cutlery-p-500x500.png 500w, /images/cutlery.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Dining</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="flight-suggestion" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/travel.png"
+                                             srcset="/images/travel-p-500x500.png 500w, /images/travel.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Flight Suggestion</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                            </div>
+                        </div>
+                        <div class="w-col w-col-4">
+                            <div class="w-row">
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="price" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/price-tag.png"
+                                             srcset="/images/price-tag-p-500x500.png 500w, /images/price-tag.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Price</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="bookingNavi" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/notebook.png"
+                                             srcset="/images/notebook-p-500x500.png 500w, /images/notebook.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Booking</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2">
+                                    <div class="tour-view-quick-nav">
+                                        <img id="terms" class="tour-view-quick-nav-img"
+                                             sizes="(max-width: 479px) 13vw, (max-width: 767px) 50px, (max-width: 991px) 35.984375px, 47.765625px"
+                                             src="/images/shaking-hands.png"
+                                             srcset="/images/shaking-hands-p-500x500.png 500w, /images/shaking-hands.png 512w"
+                                             width="60">
+                                        <p class="tour-view-quick-nav-title">Terms &amp; Conditions</p>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-2 w-col-small-2 w-col-tiny-2"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Quick Navigation -->
+
+                    <!-- PRELUDE -->
+                    <div class="tour-view-head-wrapper" id="prelude">
+                        <img class="view-tour-part-icon" sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/luggage.png">
+                        <div>PRELUDE</div>
+                    </div>
+
+                    <div class="tour-view-content-wrapper">
+                        <!--<p class="smaller-title tourview-header under-dash" id="prelude-content">PRELUDE TITLE #1</p>-->
+                        <!--<p>Prelude content #1 One of Italy’s most romanticised regions, Tuscany’s rolling hills, varied coastline and postcard-ready towns. The stunning landscapes of rolling hills lined with cypress trees, where vineyards-->
+                        <!--alternate with olive groves to create a patchwork of incomparable natural beauty that will leave you in awe.</p>-->
+                        {{#each Prelude}}
+                            <p class="smaller-title tourview-header under-dash" id="prelude-content">{{title}}</p>
+                            <p>{{preludeshow}}</p>
+                        {{/each}}
+                    </div>
+                    <!-- End of PRELUDE -->
+
+                    <!-- DAY PLAN -->
+                    <div class="tour-view-head-wrapper" id="dayplanning">
+                        <img class="view-tour-part-icon" sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/calendar.png"
+                             srcset="/images/calendar-p-500x500.png 500w, /images/calendar.png 512w">
+                        <div>DAY PLAN</div>
+                    </div>
+                    <div class="tour-view-content-wrapper">
+                        {{#with DayPlan}}
+                            {{#each planNumberDay}}
+                                <div class="day-plan-dropdown">
+                                    <div class="w-dropdown">
+                                        <div class="w-dropdown-toggle">
+                                            <div class="day-plan-header"><strong>DAY {{DayNumber.[0]}}
+                                                :</strong> {{Daytitle}}
+                                            </div>
+                                            <div class="w-icon-dropdown-toggle"></div>
+                                        </div>
+                                        <nav class="dropdown-dayplan-list w-dropdown-list"
+                                             id="w-dropdown-list{{DayNumber.[0]}}">
+                                            <div class="day-plan-details ">
+                                                <p>{{this.plan}}<br></p>
+                                            </div>
+                                        </nav>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{/with}}
+                    </div>
+                    <!-- End of DAY PLAN -->
+
+                    <!-- MAP -->
+                    <div class="tour-view-head-wrapper" id="map">
+                        <img class="view-tour-part-icon" sizes="(max-width: 479px) 26px, 30px" src="{{fixImage}}/images/map.png">
+                        <div>MAP</div>
+                    </div>
+                    <div class="tour-view-content-wrapper">
+
+                        <div class="tour-map">
+                            {{{getMap Map}}}
+                        </div>
+
+                    </div>
+
+                    <!-- End of MAP -->
+
+                    <!-- TRIP INCLUSION -->
+                    <div class="tour-view-head-wrapper" id="trip-inclusion2">
+                        <img class="view-tour-part-icon"
+                             sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/climbing.png"
+                             srcset="/images/climbing-p-500x500.png 500w, /images/climbing.png 512w">
+                        <div>TRIP INCLUSION</div>
+                    </div>
+                    <div class="tour-view-content-wrapper">
+                        <ul>
+                            {{#each tripInclusion}}
+                                {{#if this}}
+                                    <li>
+                                        <div>{{this}}</div>
+                                    </li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <!-- End of TRIP INCLUSION -->
+
+                    <!-- TRIP EXCLUSION -->
+                    <div class="tour-view-head-wrapper" id="trip-exclusion2">
+                        <img class="view-tour-part-icon"
+                             sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/warning.png"
+                             srcset="/images/warning-p-500x500.png 500w, /images/warning.png 512w">
+                        <div>TRIP EXCLUSION</div>
+                    </div>
+                    <div class="tour-view-content-wrapper">
+                        <ul>
+                            {{#each tripExclusion}}
+                                {{#if this}}
+                                    <li>
+                                        <div>{{this}}</div>
+                                    </li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <!-- End of TRIP EXCLUSION -->
+
+                    <!-- TRIP ACCOMMODATION -->
+                    <div class="tour-view-head-wrapper" id="accommodation">
+                        <img class="view-tour-part-icon"
+                             sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/bed.png"
+                             srcset="/images/bed-p-500x500.png 500w, /images/bed.png 512w">
+                        <div>ACCOMMODATION</div>
+                    </div>
+                    <div class="tour-view-content-wrapper">
+                        <ul>
+                            {{#each Accommondation}}
+                                {{#if this}}
+                                    <li>
+                                        <div>{{this}}</div>
+                                    </li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <!-- End of TRIP ACCOMMODATION -->
+
+                    <!-- SIGNATURE DINING -->
+                    <div class="tour-view-head-wrapper" id="signature-dining">
+                        <img class="view-tour-part-icon"
+                             sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/cutlery.png"
+                             srcset="/images/cutlery-p-500x500.png 500w, /images/cutlery.png 512w">
+                        <div>SIGNATURE DINING</div>
+                    </div>
+                    <div class="tour-view-content-wrapper">
+                        <ul>
+                            {{#each signatureDining}}
+                                {{#if this}}
+                                    <li>
+                                        <div>{{this}}</div>
+                                    </li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <!-- End of SIGNATURE DINING -->
+
+                    <!-- SUGGESTED FLIGHT -->
+                    <div class="tour-view-head-wrapper" id="suggested-flight-details">
+                        <img class="view-tour-part-icon"
+                             sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/travel.png"
+                             srcset="/images/travel-p-500x500.png 500w, /images/travel.png 512w">
+                        <div>SUGGESTED FLIGHT DETAILS</div>
+                    </div>
+                    {{#with travel}}
+                        <ul>
+                            {{#each flightDetails.notice}}
+                                {{#if this}}
+                                    <li>
+                                        <div>{{this}}</div>
+                                    </li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                        {{#each flightDetails.SuggestedDepartureFlight}}
+                            <div class="flight-time-inf">
+                                <p class="flight-airway-name">Suggested Departure Flight:</p>
+                                <p class="flight-airway-name">{{datetime departurefromdatetime}}|{{airlinesbranch}}</p>
+                                <div class="suggested-flight-wrapper">
+                                    <div class="airport-time-wrapper">
+                                        <div class="fly-des-text">{{departurefrom}}| {{departureFromDetails}} </div>
+                                        <div class="fly-time">{{departurefromtime}}</div>
+                                    </div>
+                                    <img class="flying-icon" sizes="50px" src="/images/takeoff-the-plane.png"
+                                         srcset="/images/takeoff-the-plane-p-500x500.png 500w, /images/takeoff-the-plane.png 512w"
+                                         width="50">
+                                    <div class="airport-time-wrapper">
+                                        <div class="fly-des-text">{{arrival}} | {{arrivalDetails}}</div>
+                                        <div class="fly-time">{{arrivaltime}}</div>
+                                    </div>
+                                    <div class="airport-time-wrapper">
+                                        <div class="fly-des-text">Total Flight Time:</div>
+                                        <div class="fly-time">{{totalflighttime}}</div>
+                                    </div>
+                                </div>
+                                <!-- OLD DESIGN
+                                    <div class="w-row">
+                                        <div class="w-col w-col-3 w-col-small-3">
+                                            <div class="fly-des-text">{{departurefrom}}</div>
+                                            <div class="fly-time">{{departurefromtime}}</div>
+                                        </div>
+                                        <div class="w-col w-col-2 w-col-small-3">
+                                            <img sizes="35px"
+                                                 src="/images/takeoff-the-plane.png"
+                                                 srcset="/images/takeoff-the-plane-p-500x500.png 500w, /images/takeoff-the-plane.png 512w"
+                                                 width="35">
+                                            </div>
+                                        <div class="w-col w-col-3 w-col-small-3">
+                                            <div class="fly-des-text">{{arrival}}</div>
+                                            <div class="fly-time">{{arrivaltime}}</div>
+                                        </div>
+                                        <div class="w-col w-col-4 w-col-small-3">
+                                            <div class="fly-des-text">Total Flight Time:</div>
+                                            <div class="fly-time">{{totalflighttime}}</div>
+                                        </div>
+                                    </div>
+                                    -->
+                            </div>
+                        {{/each}}
+                        {{#each flightDetails.SuggestedReturnFlight}}
+                            <div class="flight-time-inf">
+                                <p class="flight-airway-name">Suggested Return Flight:</p>
+                                <p class="flight-airway-name">{{datetime departurefromdatetime}}|{{airlinesbranch}}</p>
+                                <div class="suggested-flight-wrapper">
+                                    <div class="airport-time-wrapper">
+                                        <div class="fly-des-text">{{departurefrom}}| {{departureFromDetails}}</div>
+                                        <div class="fly-time">{{departurefromtime}}</div>
+                                    </div>
+                                    <img class="flying-icon" sizes="50px" src="/images/takeoff-the-plane.png"
+                                         srcset="/images/takeoff-the-plane-p-500x500.png 500w, /images/takeoff-the-plane.png 512w"
+                                         width="50">
+                                    <div class="airport-time-wrapper">
+                                        <div class="fly-des-text">{{arrival}}| {{arrivalDetails}}</div>
+                                        <div class="fly-time">{{arrivaltime}}</div>
+                                    </div>
+                                    <div class="airport-time-wrapper">
+                                        <div class="fly-des-text">Total Flight Time:</div>
+                                        <div class="fly-time">{{totalflighttime}}</div>
+                                    </div>
+                                </div>
+                                <!-- OLD DESIGN
+                                <div class="w-row">
+                                    <div class="w-col w-col-3 w-col-small-3">
+                                        <div class="fly-des-text">{{departurefrom}}</div>
+                                        <div class="fly-time">{{departurefromtime}}</div>
+                                    </div>
+                                    <div class="w-col w-col-2 w-col-small-3">
+                                        <img sizes="35px"
+                                             src="/images/takeoff-the-plane.png"
+                                             srcset="/images/takeoff-the-plane-p-500x500.png 500w, /images/takeoff-the-plane.png 512w"
+                                             width="35">
+                                    </div>
+                                    <div class="w-col w-col-3 w-col-small-3">
+                                        <div class="fly-des-text">{{arrival}}</div>
+                                        <div class="fly-time">{{arrivaltime}}</div>
+                                    </div>
+                                    <div class="w-col w-col-4 w-col-small-3">
+                                        <div class="fly-des-text">Total Flight Time:</div>
+                                        <div class="fly-time">{{totalflighttime}}</div>
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                        {{/each}}
+                    {{/with}}
+                    <!-- End of SUGGESTED FLIGHT-->
+
+                    <!-- TRIP PRICE & BOOKING -->
+                    <div class="tour-view-head-wrapper" id="price">
+                        <img class="view-tour-part-icon"
+                             sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/price-tag.png"
+                             srcset="/images/price-tag-p-500x500.png 500w, /images/price-tag.png 512w">
+                        <div>PRICE</div>
+                    </div>
+                    {{#with travel}}
+                        <!--TRIP PRICE AND TOUR OPTIONAL -->
+                        <div class="tour-view-content-wrapper">
+                            <ul>
+                            <!--{{#with tourPrice.Rate.[0]}}-->
+                                <!--<li>-->
+                                <!--<div><strong>{{this.tourRateNote}} - ${{this.tourRateIn}}**</strong></div>-->
+                                <!--</li>-->
+                                    <!--{{/with}}-->
+                                {{#each tourPrice.Rate}}
+                                    <li>
+                                        <div><strong>{{this.room}} - ${{this.tourRateIn}}**</strong></div>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                            <p class="view-tour-noted-text">Optional Tour:</p>
+                            <ul>
+                                {{#each tourPrice.optionalTour}}
+                                    <li>
+                                        <div>{{this.optionalTourRateInNote}} - ${{this.optionalTourRateIn}}*</div>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                            <p class="view-tour-noted-text">*Price is in SINGAPORE DOLLARS</p>
+                            <p class="view-tour-noted-text">*You can make tour selection below</p>
+                        </div>
+                        <!-- End of TRIP PRICE AND TOUR OPTIONAL-->
+
+
+                        <!-- BOOKING -->
+
+                        <div class="tour-view-head-wrapper" id="bookingdiv">
+                            <img class="view-tour-part-icon"
+                                 sizes="(max-width: 479px) 26px, 30px"
+                                 src="/images/notebook.png"
+                                 srcset="/images/notebook-p-500x500.png 500w, /images/notebook.png 512w">
+                            <div>BOOKING</div>
+                        </div>
+                        <div class="tour-view-content-wrapper" id="formBooking">
+                            <p class="smaller-title tourview-header under-dash" id="price">PERSONAL INFORMATION:</p>
+
+                            <!-- MOCK-UP BOOKING FORM -->
+                                <div class="w-form">
+                                    <label for="email">Email Address:</label>
+                                    <input class="booking-text-field w-input" data-name="Email" id="email"
+                                           maxlength="256" name="email" placeholder="Enter your email address"
+                                           required="true" type="email">
+                                </div>
+                            <div class="w-row">
+                                <div class="w-col w-col-6 w-col-small-6">
+                                    <div class="form-wrapper-booking w-form">
+                                        <label for="firstname">First Name (as in Passport):</label>
+                                        <input class="booking-text-field w-input" data-name="Firstname"
+                                               id="firstname"
+                                               maxlength="256" name="firstname" required="true"
+                                               type="text">
+                                    </div>
+                                </div>
+
+                                <div class="w-col w-col-6 w-col-small-6">
+                                    <div class="w-form">
+                                        <label for="lastname">Last Name (as in Passport):</label>
+                                        <input class="booking-text-field w-input" data-name="lastname"
+                                               id="lastname"
+                                               maxlength="256" name="lastname" required="true" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-form">
+                                <label for="email"><h4>Your Name is : {{firstname}} / {{lastname}}</h4></label>
+
+                            </div>
+
+                            <div class="form-wrapper-booking w-form">
+                                <label>Gender:</label>
+                                <div class="w-radio">
+                                    <input class="w-radio-input" data-name="Gender" id="Male"
+                                           name="Gender"
+                                           required="true" type="radio" value="Male">
+                                    <label class="w-form-label" for="Male">Male</label>
+                                </div>
+                                <div class="w-radio">
+                                    <input class="w-radio-input" data-name="Gender" id="Female"
+                                           name="Gender" required="true" type="radio"
+                                           value="Female">
+                                    <label class="w-form-label" for="Female">Female</label>
+                                </div>
+                            </div>
+                            <div class="w-row">
+                                <div class="w-col w-col-6 w-col-small-6">
+                                    <div class="form-wrapper-booking w-form">
+                                        <label for="nationality">Nationality:</label>
+                                        <select class="w-select" data-name="nationality" id="nationality"
+                                                name="nationality"
+                                                required="required">
+                                            <option value="singaporean">Singaporean</option>
+                                            <option value="afghan">Afghan</option>
+                                            <option value="albanian">Albanian</option>
+                                            <option value="algerian">Algerian</option>
+                                            <option value="american">American</option>
+                                            <option value="andorran">Andorran</option>
+                                            <option value="angolan">Angolan</option>
+                                            <option value="antiguans">Antiguans</option>
+                                            <option value="argentinean">Argentinean</option>
+                                            <option value="armenian">Armenian</option>
+                                            <option value="australian">Australian</option>
+                                            <option value="austrian">Austrian</option>
+                                            <option value="azerbaijani">Azerbaijani</option>
+                                            <option value="bahamian">Bahamian</option>
+                                            <option value="bahraini">Bahraini</option>
+                                            <option value="bangladeshi">Bangladeshi</option>
+                                            <option value="barbadian">Barbadian</option>
+                                            <option value="barbudans">Barbudans</option>
+                                            <option value="batswana">Batswana</option>
+                                            <option value="belarusian">Belarusian</option>
+                                            <option value="belgian">Belgian</option>
+                                            <option value="belizean">Belizean</option>
+                                            <option value="beninese">Beninese</option>
+                                            <option value="bhutanese">Bhutanese</option>
+                                            <option value="bolivian">Bolivian</option>
+                                            <option value="bosnian">Bosnian</option>
+                                            <option value="brazilian">Brazilian</option>
+                                            <option value="british">British</option>
+                                            <option value="bruneian">Bruneian</option>
+                                            <option value="bulgarian">Bulgarian</option>
+                                            <option value="burkinabe">Burkinabe</option>
+                                            <option value="burmese">Burmese</option>
+                                            <option value="burundian">Burundian</option>
+                                            <option value="cambodian">Cambodian</option>
+                                            <option value="cameroonian">Cameroonian</option>
+                                            <option value="canadian">Canadian</option>
+                                            <option value="cape verdean">Cape Verdean</option>
+                                            <option value="central african">Central African</option>
+                                            <option value="chadian">Chadian</option>
+                                            <option value="chilean">Chilean</option>
+                                            <option value="chinese">Chinese</option>
+                                            <option value="colombian">Colombian</option>
+                                            <option value="comoran">Comoran</option>
+                                            <option value="congolese">Congolese</option>
+                                            <option value="costa rican">Costa Rican</option>
+                                            <option value="croatian">Croatian</option>
+                                            <option value="cuban">Cuban</option>
+                                            <option value="cypriot">Cypriot</option>
+                                            <option value="czech">Czech</option>
+                                            <option value="danish">Danish</option>
+                                            <option value="djibouti">Djibouti</option>
+                                            <option value="dominican">Dominican</option>
+                                            <option value="dutch">Dutch</option>
+                                            <option value="east timorese">East Timorese</option>
+                                            <option value="ecuadorean">Ecuadorean</option>
+                                            <option value="egyptian">Egyptian</option>
+                                            <option value="emirian">Emirian</option>
+                                            <option value="equatorial guinean">Equatorial Guinean</option>
+                                            <option value="eritrean">Eritrean</option>
+                                            <option value="estonian">Estonian</option>
+                                            <option value="ethiopian">Ethiopian</option>
+                                            <option value="fijian">Fijian</option>
+                                            <option value="filipino">Filipino</option>
+                                            <option value="finnish">Finnish</option>
+                                            <option value="french">French</option>
+                                            <option value="gabonese">Gabonese</option>
+                                            <option value="gambian">Gambian</option>
+                                            <option value="georgian">Georgian</option>
+                                            <option value="german">German</option>
+                                            <option value="ghanaian">Ghanaian</option>
+                                            <option value="greek">Greek</option>
+                                            <option value="grenadian">Grenadian</option>
+                                            <option value="guatemalan">Guatemalan</option>
+                                            <option value="guinea-bissauan">Guinea-Bissauan</option>
+                                            <option value="guinean">Guinean</option>
+                                            <option value="guyanese">Guyanese</option>
+                                            <option value="haitian">Haitian</option>
+                                            <option value="herzegovinian">Herzegovinian</option>
+                                            <option value="honduran">Honduran</option>
+                                            <option value="hungarian">Hungarian</option>
+                                            <option value="icelander">Icelander</option>
+                                            <option value="indian">Indian</option>
+                                            <option value="indonesian">Indonesian</option>
+                                            <option value="iranian">Iranian</option>
+                                            <option value="iraqi">Iraqi</option>
+                                            <option value="irish">Irish</option>
+                                            <option value="israeli">Israeli</option>
+                                            <option value="italian">Italian</option>
+                                            <option value="ivorian">Ivorian</option>
+                                            <option value="jamaican">Jamaican</option>
+                                            <option value="japanese">Japanese</option>
+                                            <option value="jordanian">Jordanian</option>
+                                            <option value="kazakhstani">Kazakhstani</option>
+                                            <option value="kenyan">Kenyan</option>
+                                            <option value="kittian and nevisian">Kittian and Nevisian</option>
+                                            <option value="kuwaiti">Kuwaiti</option>
+                                            <option value="kyrgyz">Kyrgyz</option>
+                                            <option value="laotian">Laotian</option>
+                                            <option value="latvian">Latvian</option>
+                                            <option value="lebanese">Lebanese</option>
+                                            <option value="liberian">Liberian</option>
+                                            <option value="libyan">Libyan</option>
+                                            <option value="liechtensteiner">Liechtensteiner</option>
+                                            <option value="lithuanian">Lithuanian</option>
+                                            <option value="luxembourger">Luxembourger</option>
+                                            <option value="macedonian">Macedonian</option>
+                                            <option value="malagasy">Malagasy</option>
+                                            <option value="malawian">Malawian</option>
+                                            <option value="malaysian">Malaysian</option>
+                                            <option value="maldivan">Maldivan</option>
+                                            <option value="malian">Malian</option>
+                                            <option value="maltese">Maltese</option>
+                                            <option value="marshallese">Marshallese</option>
+                                            <option value="mauritanian">Mauritanian</option>
+                                            <option value="mauritian">Mauritian</option>
+                                            <option value="mexican">Mexican</option>
+                                            <option value="micronesian">Micronesian</option>
+                                            <option value="moldovan">Moldovan</option>
+                                            <option value="monacan">Monacan</option>
+                                            <option value="mongolian">Mongolian</option>
+                                            <option value="moroccan">Moroccan</option>
+                                            <option value="mosotho">Mosotho</option>
+                                            <option value="motswana">Motswana</option>
+                                            <option value="mozambican">Mozambican</option>
+                                            <option value="namibian">Namibian</option>
+                                            <option value="nauruan">Nauruan</option>
+                                            <option value="nepalese">Nepalese</option>
+                                            <option value="new zealander">New Zealander</option>
+                                            <option value="ni-vanuatu">Ni-Vanuatu</option>
+                                            <option value="nicaraguan">Nicaraguan</option>
+                                            <option value="nigerien">Nigerien</option>
+                                            <option value="north korean">North Korean</option>
+                                            <option value="northern irish">Northern Irish</option>
+                                            <option value="norwegian">Norwegian</option>
+                                            <option value="omani">Omani</option>
+                                            <option value="pakistani">Pakistani</option>
+                                            <option value="palauan">Palauan</option>
+                                            <option value="panamanian">Panamanian</option>
+                                            <option value="papua new guinean">Papua New Guinean</option>
+                                            <option value="paraguayan">Paraguayan</option>
+                                            <option value="peruvian">Peruvian</option>
+                                            <option value="polish">Polish</option>
+                                            <option value="portuguese">Portuguese</option>
+                                            <option value="qatari">Qatari</option>
+                                            <option value="romanian">Romanian</option>
+                                            <option value="russian">Russian</option>
+                                            <option value="rwandan">Rwandan</option>
+                                            <option value="saint lucian">Saint Lucian</option>
+                                            <option value="salvadoran">Salvadoran</option>
+                                            <option value="samoan">Samoan</option>
+                                            <option value="san marinese">San Marinese</option>
+                                            <option value="sao tomean">Sao Tomean</option>
+                                            <option value="saudi">Saudi</option>
+                                            <option value="scottish">Scottish</option>
+                                            <option value="senegalese">Senegalese</option>
+                                            <option value="serbian">Serbian</option>
+                                            <option value="seychellois">Seychellois</option>
+                                            <option value="sierra leonean">Sierra Leonean</option>
+                                            <option value="slovakian">Slovakian</option>
+                                            <option value="slovenian">Slovenian</option>
+                                            <option value="solomon islander">Solomon Islander</option>
+                                            <option value="somali">Somali</option>
+                                            <option value="south african">South African</option>
+                                            <option value="south korean">South Korean</option>
+                                            <option value="spanish">Spanish</option>
+                                            <option value="sri lankan">Sri Lankan</option>
+                                            <option value="sudanese">Sudanese</option>
+                                            <option value="surinamer">Surinamer</option>
+                                            <option value="swazi">Swazi</option>
+                                            <option value="swedish">Swedish</option>
+                                            <option value="swiss">Swiss</option>
+                                            <option value="syrian">Syrian</option>
+                                            <option value="taiwanese">Taiwanese</option>
+                                            <option value="tajik">Tajik</option>
+                                            <option value="tanzanian">Tanzanian</option>
+                                            <option value="thai">Thai</option>
+                                            <option value="togolese">Togolese</option>
+                                            <option value="tongan">Tongan</option>
+                                            <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option>
+                                            <option value="tunisian">Tunisian</option>
+                                            <option value="turkish">Turkish</option>
+                                            <option value="tuvaluan">Tuvaluan</option>
+                                            <option value="ugandan">Ugandan</option>
+                                            <option value="ukrainian">Ukrainian</option>
+                                            <option value="uruguayan">Uruguayan</option>
+                                            <option value="uzbekistani">Uzbekistani</option>
+                                            <option value="venezuelan">Venezuelan</option>
+                                            <option value="vietnamese">Vietnamese</option>
+                                            <option value="welsh">Welsh</option>
+                                            <option value="yemenite">Yemenite</option>
+                                            <option value="zambian">Zambian</option>
+                                            <option value="zimbabwean">Zimbabwean</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-6 w-col-small-6">
+                                    <div class="form-wrapper-booking w-form">
+                                        <label for="Dateofbird">Date of Birth:</label>
+                                        <input class="booking-text-field w-input" data-name="DateOfBird"
+                                               id="Dateofbird"
+                                               maxlength="256" name="DateOfBird" required="required" type="date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-wrapper-booking w-form">
+                                <label for="Address1">Address:</label>
+                                <input class="booking-text-field w-input" data-name="Address" id="Address1"
+                                       maxlength="512" name="Address" placeholder="Street Address Line 1"
+                                       required="required" type="text">
+                                <input class="booking-text-field w-input" data-name="Address" id="Address2"
+                                       maxlength="512" name="Address" placeholder="Street Address Line 2" type="text">
+                            </div>
+                            <div class="w-row">
+                                <div class="w-col w-col-6">
+                                    <div class="form-wrapper-booking w-form">
+                                        <input class="booking-text-field w-input" data-name="City" id="City"
+                                               maxlength="256" name="City" placeholder="City"
+                                               required="required"
+                                               type="text">
+                                        <input class="booking-text-field w-input" data-name="Zip" id="Zip"
+                                               maxlength="256" name="Zip" placeholder="Zip / Postal Code"
+                                               required="required" type="number">
+                                        <label for="Phone">Phone:</label>
+                                        <div class="w-col w-col-3">
+                                            <input class="booking-text-field w-input" data-name="PhoneCountryCode"
+                                                   id="PhoneCountryCode"
+                                                   maxlength="256" name="Phone" placeholder="Country"
+                                                   type="number">
+                                        </div>
+                                        <div class="w-col w-col-1"></div>
+                                        <div class="w-col w-col-8">
+                                            <input class="booking-text-field w-input" data-name="Phone" id="Phone"
+                                                   maxlength="256" name="Phone" placeholder="Phone Number"
+                                                   required="required" type="number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-col w-col-6">
+                                    <div class="form-wrapper-booking w-form">
+                                        <input class="booking-text-field w-input" data-name="state" id="state"
+                                               maxlength="256" name="state" placeholder="State/Province/Region"
+                                               required="required" type="text">
+                                        <select class="w-select" data-name="Country" id="Country" name="Country"
+                                                required="required">
+                                            <option value="SG">Singapore</option>
+                                            <option value="AF">Afghanistan</option>
+                                            <option value="AX">Åland Islands</option>
+                                            <option value="AL">Albania</option>
+                                            <option value="DZ">Algeria</option>
+                                            <option value="AS">American Samoa</option>
+                                            <option value="AD">Andorra</option>
+                                            <option value="AO">Angola</option>
+                                            <option value="AI">Anguilla</option>
+                                            <option value="AQ">Antarctica</option>
+                                            <option value="AG">Antigua and Barbuda</option>
+                                            <option value="AR">Argentina</option>
+                                            <option value="AM">Armenia</option>
+                                            <option value="AW">Aruba</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="AT">Austria</option>
+                                            <option value="AZ">Azerbaijan</option>
+                                            <option value="BS">Bahamas</option>
+                                            <option value="BH">Bahrain</option>
+                                            <option value="BD">Bangladesh</option>
+                                            <option value="BB">Barbados</option>
+                                            <option value="BY">Belarus</option>
+                                            <option value="BE">Belgium</option>
+                                            <option value="BZ">Belize</option>
+                                            <option value="BJ">Benin</option>
+                                            <option value="BM">Bermuda</option>
+                                            <option value="BT">Bhutan</option>
+                                            <option value="BO">Bolivia, Plurinational State of</option>
+                                            <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                            <option value="BA">Bosnia and Herzegovina</option>
+                                            <option value="BW">Botswana</option>
+                                            <option value="BV">Bouvet Island</option>
+                                            <option value="BR">Brazil</option>
+                                            <option value="IO">British Indian Ocean Territory</option>
+                                            <option value="BN">Brunei Darussalam</option>
+                                            <option value="BG">Bulgaria</option>
+                                            <option value="BF">Burkina Faso</option>
+                                            <option value="BI">Burundi</option>
+                                            <option value="KH">Cambodia</option>
+                                            <option value="CM">Cameroon</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="CV">Cape Verde</option>
+                                            <option value="KY">Cayman Islands</option>
+                                            <option value="CF">Central African Republic</option>
+                                            <option value="TD">Chad</option>
+                                            <option value="CL">Chile</option>
+                                            <option value="CN">China</option>
+                                            <option value="CX">Christmas Island</option>
+                                            <option value="CC">Cocos (Keeling) Islands</option>
+                                            <option value="CO">Colombia</option>
+                                            <option value="KM">Comoros</option>
+                                            <option value="CG">Congo</option>
+                                            <option value="CD">Congo, the Democratic Republic of the</option>
+                                            <option value="CK">Cook Islands</option>
+                                            <option value="CR">Costa Rica</option>
+                                            <option value="CI">Côte d'Ivoire</option>
+                                            <option value="HR">Croatia</option>
+                                            <option value="CU">Cuba</option>
+                                            <option value="CW">Curaçao</option>
+                                            <option value="CY">Cyprus</option>
+                                            <option value="CZ">Czech Republic</option>
+                                            <option value="DK">Denmark</option>
+                                            <option value="DJ">Djibouti</option>
+                                            <option value="DM">Dominica</option>
+                                            <option value="DO">Dominican Republic</option>
+                                            <option value="EC">Ecuador</option>
+                                            <option value="EG">Egypt</option>
+                                            <option value="SV">El Salvador</option>
+                                            <option value="GQ">Equatorial Guinea</option>
+                                            <option value="ER">Eritrea</option>
+                                            <option value="EE">Estonia</option>
+                                            <option value="ET">Ethiopia</option>
+                                            <option value="FK">Falkland Islands (Malvinas)</option>
+                                            <option value="FO">Faroe Islands</option>
+                                            <option value="FJ">Fiji</option>
+                                            <option value="FI">Finland</option>
+                                            <option value="FR">France</option>
+                                            <option value="GF">French Guiana</option>
+                                            <option value="PF">French Polynesia</option>
+                                            <option value="TF">French Southern Territories</option>
+                                            <option value="GA">Gabon</option>
+                                            <option value="GM">Gambia</option>
+                                            <option value="GE">Georgia</option>
+                                            <option value="DE">Germany</option>
+                                            <option value="GH">Ghana</option>
+                                            <option value="GI">Gibraltar</option>
+                                            <option value="GR">Greece</option>
+                                            <option value="GL">Greenland</option>
+                                            <option value="GD">Grenada</option>
+                                            <option value="GP">Guadeloupe</option>
+                                            <option value="GU">Guam</option>
+                                            <option value="GT">Guatemala</option>
+                                            <option value="GG">Guernsey</option>
+                                            <option value="GN">Guinea</option>
+                                            <option value="GW">Guinea-Bissau</option>
+                                            <option value="GY">Guyana</option>
+                                            <option value="HT">Haiti</option>
+                                            <option value="HM">Heard Island and McDonald Islands</option>
+                                            <option value="VA">Holy See (Vatican City State)</option>
+                                            <option value="HN">Honduras</option>
+                                            <option value="HK">Hong Kong</option>
+                                            <option value="HU">Hungary</option>
+                                            <option value="IS">Iceland</option>
+                                            <option value="IN">India</option>
+                                            <option value="ID">Indonesia</option>
+                                            <option value="IR">Iran, Islamic Republic of</option>
+                                            <option value="IQ">Iraq</option>
+                                            <option value="IE">Ireland</option>
+                                            <option value="IM">Isle of Man</option>
+                                            <option value="IL">Israel</option>
+                                            <option value="IT">Italy</option>
+                                            <option value="JM">Jamaica</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="JE">Jersey</option>
+                                            <option value="JO">Jordan</option>
+                                            <option value="KZ">Kazakhstan</option>
+                                            <option value="KE">Kenya</option>
+                                            <option value="KI">Kiribati</option>
+                                            <option value="KP">Korea, Democratic People's Republic of</option>
+                                            <option value="KR">Korea, Republic of</option>
+                                            <option value="KW">Kuwait</option>
+                                            <option value="KG">Kyrgyzstan</option>
+                                            <option value="LA">Lao People's Democratic Republic</option>
+                                            <option value="LV">Latvia</option>
+                                            <option value="LB">Lebanon</option>
+                                            <option value="LS">Lesotho</option>
+                                            <option value="LR">Liberia</option>
+                                            <option value="LY">Libya</option>
+                                            <option value="LI">Liechtenstein</option>
+                                            <option value="LT">Lithuania</option>
+                                            <option value="LU">Luxembourg</option>
+                                            <option value="MO">Macao</option>
+                                            <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                            <option value="MG">Madagascar</option>
+                                            <option value="MW">Malawi</option>
+                                            <option value="MY">Malaysia</option>
+                                            <option value="MV">Maldives</option>
+                                            <option value="ML">Mali</option>
+                                            <option value="MT">Malta</option>
+                                            <option value="MH">Marshall Islands</option>
+                                            <option value="MQ">Martinique</option>
+                                            <option value="MR">Mauritania</option>
+                                            <option value="MU">Mauritius</option>
+                                            <option value="YT">Mayotte</option>
+                                            <option value="MX">Mexico</option>
+                                            <option value="FM">Micronesia, Federated States of</option>
+                                            <option value="MD">Moldova, Republic of</option>
+                                            <option value="MC">Monaco</option>
+                                            <option value="MN">Mongolia</option>
+                                            <option value="ME">Montenegro</option>
+                                            <option value="MS">Montserrat</option>
+                                            <option value="MA">Morocco</option>
+                                            <option value="MZ">Mozambique</option>
+                                            <option value="MM">Myanmar</option>
+                                            <option value="NA">Namibia</option>
+                                            <option value="NR">Nauru</option>
+                                            <option value="NP">Nepal</option>
+                                            <option value="NL">Netherlands</option>
+                                            <option value="NC">New Caledonia</option>
+                                            <option value="NZ">New Zealand</option>
+                                            <option value="NI">Nicaragua</option>
+                                            <option value="NE">Niger</option>
+                                            <option value="NG">Nigeria</option>
+                                            <option value="NU">Niue</option>
+                                            <option value="NF">Norfolk Island</option>
+                                            <option value="MP">Northern Mariana Islands</option>
+                                            <option value="NO">Norway</option>
+                                            <option value="OM">Oman</option>
+                                            <option value="PK">Pakistan</option>
+                                            <option value="PW">Palau</option>
+                                            <option value="PS">Palestinian Territory, Occupied</option>
+                                            <option value="PA">Panama</option>
+                                            <option value="PG">Papua New Guinea</option>
+                                            <option value="PY">Paraguay</option>
+                                            <option value="PE">Peru</option>
+                                            <option value="PH">Philippines</option>
+                                            <option value="PN">Pitcairn</option>
+                                            <option value="PL">Poland</option>
+                                            <option value="PT">Portugal</option>
+                                            <option value="PR">Puerto Rico</option>
+                                            <option value="QA">Qatar</option>
+                                            <option value="RE">Réunion</option>
+                                            <option value="RO">Romania</option>
+                                            <option value="RU">Russian Federation</option>
+                                            <option value="RW">Rwanda</option>
+                                            <option value="BL">Saint Barthélemy</option>
+                                            <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                            <option value="KN">Saint Kitts and Nevis</option>
+                                            <option value="LC">Saint Lucia</option>
+                                            <option value="MF">Saint Martin (French part)</option>
+                                            <option value="PM">Saint Pierre and Miquelon</option>
+                                            <option value="VC">Saint Vincent and the Grenadines</option>
+                                            <option value="WS">Samoa</option>
+                                            <option value="SM">San Marino</option>
+                                            <option value="ST">Sao Tome and Principe</option>
+                                            <option value="SA">Saudi Arabia</option>
+                                            <option value="SN">Senegal</option>
+                                            <option value="RS">Serbia</option>
+                                            <option value="SC">Seychelles</option>
+                                            <option value="SL">Sierra Leone</option>
+                                            <option value="SX">Sint Maarten (Dutch part)</option>
+                                            <option value="SK">Slovakia</option>
+                                            <option value="SI">Slovenia</option>
+                                            <option value="SB">Solomon Islands</option>
+                                            <option value="SO">Somalia</option>
+                                            <option value="ZA">South Africa</option>
+                                            <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                            <option value="SS">South Sudan</option>
+                                            <option value="ES">Spain</option>
+                                            <option value="LK">Sri Lanka</option>
+                                            <option value="SD">Sudan</option>
+                                            <option value="SR">Suriname</option>
+                                            <option value="SJ">Svalbard and Jan Mayen</option>
+                                            <option value="SZ">Swaziland</option>
+                                            <option value="SE">Sweden</option>
+                                            <option value="CH">Switzerland</option>
+                                            <option value="SY">Syrian Arab Republic</option>
+                                            <option value="TW">Taiwan, Province of China</option>
+                                            <option value="TJ">Tajikistan</option>
+                                            <option value="TZ">Tanzania, United Republic of</option>
+                                            <option value="TH">Thailand</option>
+                                            <option value="TL">Timor-Leste</option>
+                                            <option value="TG">Togo</option>
+                                            <option value="TK">Tokelau</option>
+                                            <option value="TO">Tonga</option>
+                                            <option value="TT">Trinidad and Tobago</option>
+                                            <option value="TN">Tunisia</option>
+                                            <option value="TR">Turkey</option>
+                                            <option value="TM">Turkmenistan</option>
+                                            <option value="TC">Turks and Caicos Islands</option>
+                                            <option value="TV">Tuvalu</option>
+                                            <option value="UG">Uganda</option>
+                                            <option value="UA">Ukraine</option>
+                                            <option value="AE">United Arab Emirates</option>
+                                            <option value="GB">United Kingdom</option>
+                                            <option value="US">United States</option>
+                                            <option value="UM">United States Minor Outlying Islands</option>
+                                            <option value="UY">Uruguay</option>
+                                            <option value="UZ">Uzbekistan</option>
+                                            <option value="VU">Vanuatu</option>
+                                            <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                            <option value="VN">Viet Nam</option>
+                                            <option value="VG">Virgin Islands, British</option>
+                                            <option value="VI">Virgin Islands, U.S.</option>
+                                            <option value="WF">Wallis and Futuna</option>
+                                            <option value="EH">Western Sahara</option>
+                                            <option value="YE">Yemen</option>
+                                            <option value="ZM">Zambia</option>
+                                            <option value="ZW">Zimbabwe</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="smaller-title tourview-header under-dash" id="price">PASSPORT DETAILS:</p>
+                            <div class="form-wrapper-booking w-form">
+                                <label for="PassportNo">Passport No.</label>
+                                <input class="booking-text-field w-input" data-name="PassportNo" id="PassportNo"
+                                       maxlength="256" name="Address" required="required" type="text">
+                                <label for="PassportCountry">Passport - Issue Country</label>
+                                <select class="w-select" data-name="PassportCountry" id="PassportCountry"
+                                        name="PassportCountry"
+                                        required="required">
+                                    <option value="SG">Singapore</option>
+                                    <option value="AF">Afghanistan</option>
+                                    <option value="AX">Åland Islands</option>
+                                    <option value="AL">Albania</option>
+                                    <option value="DZ">Algeria</option>
+                                    <option value="AS">American Samoa</option>
+                                    <option value="AD">Andorra</option>
+                                    <option value="AO">Angola</option>
+                                    <option value="AI">Anguilla</option>
+                                    <option value="AQ">Antarctica</option>
+                                    <option value="AG">Antigua and Barbuda</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="AM">Armenia</option>
+                                    <option value="AW">Aruba</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="AT">Austria</option>
+                                    <option value="AZ">Azerbaijan</option>
+                                    <option value="BS">Bahamas</option>
+                                    <option value="BH">Bahrain</option>
+                                    <option value="BD">Bangladesh</option>
+                                    <option value="BB">Barbados</option>
+                                    <option value="BY">Belarus</option>
+                                    <option value="BE">Belgium</option>
+                                    <option value="BZ">Belize</option>
+                                    <option value="BJ">Benin</option>
+                                    <option value="BM">Bermuda</option>
+                                    <option value="BT">Bhutan</option>
+                                    <option value="BO">Bolivia, Plurinational State of</option>
+                                    <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                    <option value="BA">Bosnia and Herzegovina</option>
+                                    <option value="BW">Botswana</option>
+                                    <option value="BV">Bouvet Island</option>
+                                    <option value="BR">Brazil</option>
+                                    <option value="IO">British Indian Ocean Territory</option>
+                                    <option value="BN">Brunei Darussalam</option>
+                                    <option value="BG">Bulgaria</option>
+                                    <option value="BF">Burkina Faso</option>
+                                    <option value="BI">Burundi</option>
+                                    <option value="KH">Cambodia</option>
+                                    <option value="CM">Cameroon</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="CV">Cape Verde</option>
+                                    <option value="KY">Cayman Islands</option>
+                                    <option value="CF">Central African Republic</option>
+                                    <option value="TD">Chad</option>
+                                    <option value="CL">Chile</option>
+                                    <option value="CN">China</option>
+                                    <option value="CX">Christmas Island</option>
+                                    <option value="CC">Cocos (Keeling) Islands</option>
+                                    <option value="CO">Colombia</option>
+                                    <option value="KM">Comoros</option>
+                                    <option value="CG">Congo</option>
+                                    <option value="CD">Congo, the Democratic Republic of the</option>
+                                    <option value="CK">Cook Islands</option>
+                                    <option value="CR">Costa Rica</option>
+                                    <option value="CI">Côte d'Ivoire</option>
+                                    <option value="HR">Croatia</option>
+                                    <option value="CU">Cuba</option>
+                                    <option value="CW">Curaçao</option>
+                                    <option value="CY">Cyprus</option>
+                                    <option value="CZ">Czech Republic</option>
+                                    <option value="DK">Denmark</option>
+                                    <option value="DJ">Djibouti</option>
+                                    <option value="DM">Dominica</option>
+                                    <option value="DO">Dominican Republic</option>
+                                    <option value="EC">Ecuador</option>
+                                    <option value="EG">Egypt</option>
+                                    <option value="SV">El Salvador</option>
+                                    <option value="GQ">Equatorial Guinea</option>
+                                    <option value="ER">Eritrea</option>
+                                    <option value="EE">Estonia</option>
+                                    <option value="ET">Ethiopia</option>
+                                    <option value="FK">Falkland Islands (Malvinas)</option>
+                                    <option value="FO">Faroe Islands</option>
+                                    <option value="FJ">Fiji</option>
+                                    <option value="FI">Finland</option>
+                                    <option value="FR">France</option>
+                                    <option value="GF">French Guiana</option>
+                                    <option value="PF">French Polynesia</option>
+                                    <option value="TF">French Southern Territories</option>
+                                    <option value="GA">Gabon</option>
+                                    <option value="GM">Gambia</option>
+                                    <option value="GE">Georgia</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="GH">Ghana</option>
+                                    <option value="GI">Gibraltar</option>
+                                    <option value="GR">Greece</option>
+                                    <option value="GL">Greenland</option>
+                                    <option value="GD">Grenada</option>
+                                    <option value="GP">Guadeloupe</option>
+                                    <option value="GU">Guam</option>
+                                    <option value="GT">Guatemala</option>
+                                    <option value="GG">Guernsey</option>
+                                    <option value="GN">Guinea</option>
+                                    <option value="GW">Guinea-Bissau</option>
+                                    <option value="GY">Guyana</option>
+                                    <option value="HT">Haiti</option>
+                                    <option value="HM">Heard Island and McDonald Islands</option>
+                                    <option value="VA">Holy See (Vatican City State)</option>
+                                    <option value="HN">Honduras</option>
+                                    <option value="HK">Hong Kong</option>
+                                    <option value="HU">Hungary</option>
+                                    <option value="IS">Iceland</option>
+                                    <option value="IN">India</option>
+                                    <option value="ID">Indonesia</option>
+                                    <option value="IR">Iran, Islamic Republic of</option>
+                                    <option value="IQ">Iraq</option>
+                                    <option value="IE">Ireland</option>
+                                    <option value="IM">Isle of Man</option>
+                                    <option value="IL">Israel</option>
+                                    <option value="IT">Italy</option>
+                                    <option value="JM">Jamaica</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="JE">Jersey</option>
+                                    <option value="JO">Jordan</option>
+                                    <option value="KZ">Kazakhstan</option>
+                                    <option value="KE">Kenya</option>
+                                    <option value="KI">Kiribati</option>
+                                    <option value="KP">Korea, Democratic People's Republic of</option>
+                                    <option value="KR">Korea, Republic of</option>
+                                    <option value="KW">Kuwait</option>
+                                    <option value="KG">Kyrgyzstan</option>
+                                    <option value="LA">Lao People's Democratic Republic</option>
+                                    <option value="LV">Latvia</option>
+                                    <option value="LB">Lebanon</option>
+                                    <option value="LS">Lesotho</option>
+                                    <option value="LR">Liberia</option>
+                                    <option value="LY">Libya</option>
+                                    <option value="LI">Liechtenstein</option>
+                                    <option value="LT">Lithuania</option>
+                                    <option value="LU">Luxembourg</option>
+                                    <option value="MO">Macao</option>
+                                    <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                    <option value="MG">Madagascar</option>
+                                    <option value="MW">Malawi</option>
+                                    <option value="MY">Malaysia</option>
+                                    <option value="MV">Maldives</option>
+                                    <option value="ML">Mali</option>
+                                    <option value="MT">Malta</option>
+                                    <option value="MH">Marshall Islands</option>
+                                    <option value="MQ">Martinique</option>
+                                    <option value="MR">Mauritania</option>
+                                    <option value="MU">Mauritius</option>
+                                    <option value="YT">Mayotte</option>
+                                    <option value="MX">Mexico</option>
+                                    <option value="FM">Micronesia, Federated States of</option>
+                                    <option value="MD">Moldova, Republic of</option>
+                                    <option value="MC">Monaco</option>
+                                    <option value="MN">Mongolia</option>
+                                    <option value="ME">Montenegro</option>
+                                    <option value="MS">Montserrat</option>
+                                    <option value="MA">Morocco</option>
+                                    <option value="MZ">Mozambique</option>
+                                    <option value="MM">Myanmar</option>
+                                    <option value="NA">Namibia</option>
+                                    <option value="NR">Nauru</option>
+                                    <option value="NP">Nepal</option>
+                                    <option value="NL">Netherlands</option>
+                                    <option value="NC">New Caledonia</option>
+                                    <option value="NZ">New Zealand</option>
+                                    <option value="NI">Nicaragua</option>
+                                    <option value="NE">Niger</option>
+                                    <option value="NG">Nigeria</option>
+                                    <option value="NU">Niue</option>
+                                    <option value="NF">Norfolk Island</option>
+                                    <option value="MP">Northern Mariana Islands</option>
+                                    <option value="NO">Norway</option>
+                                    <option value="OM">Oman</option>
+                                    <option value="PK">Pakistan</option>
+                                    <option value="PW">Palau</option>
+                                    <option value="PS">Palestinian Territory, Occupied</option>
+                                    <option value="PA">Panama</option>
+                                    <option value="PG">Papua New Guinea</option>
+                                    <option value="PY">Paraguay</option>
+                                    <option value="PE">Peru</option>
+                                    <option value="PH">Philippines</option>
+                                    <option value="PN">Pitcairn</option>
+                                    <option value="PL">Poland</option>
+                                    <option value="PT">Portugal</option>
+                                    <option value="PR">Puerto Rico</option>
+                                    <option value="QA">Qatar</option>
+                                    <option value="RE">Réunion</option>
+                                    <option value="RO">Romania</option>
+                                    <option value="RU">Russian Federation</option>
+                                    <option value="RW">Rwanda</option>
+                                    <option value="BL">Saint Barthélemy</option>
+                                    <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                    <option value="KN">Saint Kitts and Nevis</option>
+                                    <option value="LC">Saint Lucia</option>
+                                    <option value="MF">Saint Martin (French part)</option>
+                                    <option value="PM">Saint Pierre and Miquelon</option>
+                                    <option value="VC">Saint Vincent and the Grenadines</option>
+                                    <option value="WS">Samoa</option>
+                                    <option value="SM">San Marino</option>
+                                    <option value="ST">Sao Tome and Principe</option>
+                                    <option value="SA">Saudi Arabia</option>
+                                    <option value="SN">Senegal</option>
+                                    <option value="RS">Serbia</option>
+                                    <option value="SC">Seychelles</option>
+                                    <option value="SL">Sierra Leone</option>
+                                    <option value="SX">Sint Maarten (Dutch part)</option>
+                                    <option value="SK">Slovakia</option>
+                                    <option value="SI">Slovenia</option>
+                                    <option value="SB">Solomon Islands</option>
+                                    <option value="SO">Somalia</option>
+                                    <option value="ZA">South Africa</option>
+                                    <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                    <option value="SS">South Sudan</option>
+                                    <option value="ES">Spain</option>
+                                    <option value="LK">Sri Lanka</option>
+                                    <option value="SD">Sudan</option>
+                                    <option value="SR">Suriname</option>
+                                    <option value="SJ">Svalbard and Jan Mayen</option>
+                                    <option value="SZ">Swaziland</option>
+                                    <option value="SE">Sweden</option>
+                                    <option value="CH">Switzerland</option>
+                                    <option value="SY">Syrian Arab Republic</option>
+                                    <option value="TW">Taiwan, Province of China</option>
+                                    <option value="TJ">Tajikistan</option>
+                                    <option value="TZ">Tanzania, United Republic of</option>
+                                    <option value="TH">Thailand</option>
+                                    <option value="TL">Timor-Leste</option>
+                                    <option value="TG">Togo</option>
+                                    <option value="TK">Tokelau</option>
+                                    <option value="TO">Tonga</option>
+                                    <option value="TT">Trinidad and Tobago</option>
+                                    <option value="TN">Tunisia</option>
+                                    <option value="TR">Turkey</option>
+                                    <option value="TM">Turkmenistan</option>
+                                    <option value="TC">Turks and Caicos Islands</option>
+                                    <option value="TV">Tuvalu</option>
+                                    <option value="UG">Uganda</option>
+                                    <option value="UA">Ukraine</option>
+                                    <option value="AE">United Arab Emirates</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="US">United States</option>
+                                    <option value="UM">United States Minor Outlying Islands</option>
+                                    <option value="UY">Uruguay</option>
+                                    <option value="UZ">Uzbekistan</option>
+                                    <option value="VU">Vanuatu</option>
+                                    <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                    <option value="VN">Viet Nam</option>
+                                    <option value="VG">Virgin Islands, British</option>
+                                    <option value="VI">Virgin Islands, U.S.</option>
+                                    <option value="WF">Wallis and Futuna</option>
+                                    <option value="EH">Western Sahara</option>
+                                    <option value="YE">Yemen</option>
+                                    <option value="ZM">Zambia</option>
+                                    <option value="ZW">Zimbabwe</option>
+                                </select>
+                                <label for="PassportExpiryDate">Passport Expiry Date</label>
+                                <input class="booking-text-field w-input" data-name="PassportExpiryDate"
+                                       id="PassportExpiryDate"
+                                       maxlength="256" name="Address" required="required" type="date">
+
+                                <p class="smaller-title tourview-header under-dash">NEXT OF KIN:</p>
+
+                                <label for="KinName">Name</label>
+                                <input class="booking-text-field w-input" data-name="KinName"
+                                       id="KinName"
+                                       maxlength="256" name="KinName" required="required" type="text">
+
+                                <label for="KinName">Relationship</label>
+                                <input class="booking-text-field w-input" data-name="KinRelationship"
+                                       id="KinRelationship"
+                                       maxlength="256" name="KinRelationship" required="required" type="text">
+
+                                <label for="KinName">Phone Number</label>
+                                <input class="booking-text-field w-input" data-name="KinPhone"
+                                       id="KinPhone"
+                                       maxlength="256" name="KinPhone" required="required" type="number">
+                            </div>
+                            <!-- End of MOCK-UP BOOKING FORM-->
+
+                            <!-- TOUR SELECTION -->
+                            <!--<p class="smaller-title tourview-header under-dash" id="price">TOUR SELECTION:</p>-->
+                            <!--<div class="form-wrapper-booking w-form">-->
+                            <!--<form data-name="tourRate" id="tourRate" name="tourRate">-->
+                            <!--<label for="Address">Tour Rate (Per Pax)</label>-->
+                                <!--{{#each tourPrice.Rate}}-->
+                            <!--<div class="w-radio">-->
+                            <!--<input class="w-radio-input" data-name="TourRate"-->
+                            <!--id="rateNode{{@index}}"-->
+                            <!--name="TourRate"-->
+                            <!--type="radio" value="2" content="{{this}}">-->
+                            <!--<label class="w-form-label" for="rateNode{{@index}}">{{this}}</label>-->
+                            <!--</div>-->
+                                <!--{{/each}}-->
+                            <!--</form>-->
+                            <!--</div>-->
+
+
+                            <!--old selection-->
+                            <!--<h6 class="smaller-title tourview-header under-dash" id="price">TOUR SELECTION:</h6>-->
+                            <!--<div class="form-wrapper-booking w-form">-->
+                            <!--<form data-name="Email Form" id="email-form" name="email-form">-->
+                            <!--<label for="Address">Main Tour Rate (Per Pax)</label>-->
+                            <!--<div class="w-radio">-->
+                            <!--<input class="w-radio-input" data-name="TourRate" id="node" name="TourRate" type="radio" value="1">-->
+                            <!--<label class="w-form-label" for="node">Rate: Twin Sharing Accommodation (With Same Gender) - S$10500</label>-->
+                            <!--</div>-->
+                            <!--<div class="w-radio">-->
+                            <!--<input class="w-radio-input" data-name="TourRate" id="node" name="TourRate" type="radio" value="1">-->
+                            <!--<label class="w-form-label" for="node">Rate: Single Room S$11700</label>-->
+                            <!--</div>-->
+                            <!--</form>-->
+                            <!--<div class="w-form-done">-->
+                            <!--<div>Thank you! Your submission has been received!</div>-->
+                            <!--</div>-->
+                            <!--<div class="w-form-fail">-->
+                            <!--<div>Oops! Something went wrong while submitting the form</div>-->
+                            <!--</div>-->
+                            <!--</div>-->
+
+
+                            <div class="form-wrapper-booking w-form">
+
+                                <!-- End of TOUR SELECTION -->
+
+                                <!-- MEAL REQUEST -->
+                                <p class="smaller-title tourview-header under-dash" id="price">MEAL (Special
+                                    Request):</p>
+                                <div class="form-wrapper-booking w-form">
+                                    <form data-name="meal Request" id="mealRequest" name="mealRequest">
+                                        <label for="Address">If you have special dietary requirements, you can let us
+                                            know
+                                            in advance and we will try to provide you with a suitable meal if
+                                            available</label>
+                                        {{#each meal}}
+                                            <div class="w-radio">
+                                                <input class="w-radio-input" data-name="TourRate"
+                                                       id="mealradio{{@index}}"
+                                                       name="TourRate"
+                                                       type="checkbox" content="{{this}}">
+                                                <label class="w-form-label" for="mealradio{{@index}}">{{this}}</label>
+                                            </div>
+                                        {{/each}}
+                                    </form>
+                                </div>
+                                <!-- End of MEAL REQUEST -->
+
+                                <p class="smaller-title tourview-header under-dash" id="extraquestion">EXTRA FIELDS:</p>
+                                <div class="form-wrapper-booking w-form">
+                                    <form data-name="extraFields" id="extraFields" name="extraFields">
+                                        <label for="Extrafield">{{extraFields}}?</label>
+                                        <input class="booking-text-field w-input" data-name="Extrafield"
+                                               id="Extrafield"
+                                               maxlength="256" name="Address" required="required" type="text">
+                                    </form>
+                                    <p class="smaller-title tourview-header under-dash" id="price">AGENT CODE:</p>
+                                    <div class="form-wrapper-booking w-form">
+                                        <form data-name="Email Form" name="email-form">
+                                            <label for="agentcode">0-10 Max Characters</label>
+                                            <input class="booking-text-field w-input" data-name="Address" id="agentcode"
+                                                   maxlength="256" name="Address" required="required" type="email">
+                                        </form>
+                                    </div>
+                                    <p class="smaller-title tourview-header under-dash" id="price">COMMENT/REQUEST:</p>
+                                    <div class="form-wrapper-booking w-form">
+                                        <form data-name="Email Form" id="Request" name="email-form">
+                                            <input class="booking-text-field w-input" data-name="Request" id="commentRequest"
+                                                   maxlength="256" name="Request" type="text">
+                                        </form>
+                                    </div>
+
+
+                                    <p class="smaller-title tourview-header under-dash" id="price">TOUR SELECTION:</p>
+                                    <div class="form-wrapper-booking w-form">
+                                        <form data-name="Email Form" id="booking-rule" name="booking-rule">
+                                            <label for="Address">Agree to Booking Rules</label>
+                                            <div class="w-checkbox">
+                                                <input class="w-checkbox-input" data-name="agreement_1" id="agreement_"
+                                                       name="agreement_1" required="required" type="checkbox">
+                                                <label class="w-form-label" for="agreement_">I understand that I am
+                                                    advise by Unusual Expedition under STB regulation to purchase my own
+                                                    travel insurance.</label>
+                                            </div>
+                                            <div class="w-checkbox">
+                                                <input class="w-checkbox-input" data-name="agreement_2"
+                                                       id="agreement_-2" name="agreement_2" required="required"
+                                                       type="checkbox">
+                                                <label class="w-form-label" for="agreement_-2">I understand that it is
+                                                    compulsory to purchase my own travel insurance under Unusual
+                                                    Expedition Terms &amp; Conditions</label>
+                                            </div>
+                                            <div class="w-checkbox">
+                                                <input class="w-checkbox-input" data-name="agreement_3"
+                                                       id="agreement_-3" name="agreement_3" required="required"
+                                                       type="checkbox">
+                                                <label class="w-form-label" for="agreement_-3">I declare that I am fit
+                                                    for travelling.</label>
+                                            </div>
+                                            <div class="w-checkbox">
+                                                <input class="w-checkbox-input" data-name="agreement_4"
+                                                       id="agreement_-4" name="agreement_4" required="required"
+                                                       type="checkbox">
+                                                <label class="w-form-label" for="agreement_-4">I understand that this
+                                                    booking is subjected to final confirmation from Unusual
+                                                    Expedition.</label>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <p class="smaller-title tourview-header under-dash" id="price">DISCOUNT CODE</p>
+                                    <div class="form-wrapper-booking w-form">
+                                        <form data-name="discount" id="discount" name="discount">
+                                            <input class="booking-text-field w-input" data-name="discount"
+                                                   id="valueDiscount"
+                                                   maxlength="256" name="Request" type="text">
+                                        </form>
+                                    </div>
+                                    <h6 class="smaller-title tourview-header under-dash" id="price">TOUR SELECTION
+                                        PRICE:</h6>
+                                    <div class="form-wrapper-booking w-form">
+                                        <label for="Address">Main Tour Rate (Per Pax)</label>
+                                        <form data-name="Email Form" id="divMainPrice" name="email-form">
+                                            {{#each travel.tourPrice.Rate}}
+                                                <div class="w-radio">
+                                                    <input class="w-radio-input" data-name="TourRate"
+                                                        {{selectFirstMainRate @index}}
+                                                           more="{{this.room}}" id="tourMainPrice{{@index}}"
+                                                           name="TourRate" type="radio" value="{{this.tourRateIn}}">
+                                                    <label class="w-form-label"
+                                                           for="tourMainPrice{{@index}}">{{this.room}}-
+                                                        ${{this.tourRateIn}}</label>
+                                                </div>
+                                            {{/each}}
+                                        </form>
+                                        <div class="w-form-done">
+                                            <div>Thank you! Your submission has been received!</div>
+                                        </div>
+                                        <div class="w-form-fail">
+                                            <div>Oops! Something went wrong while submitting the form</div>
+                                        </div>
+                                    </div>
+
+                                    <form data-name="Email Form" id="optional_rate" name="optional_rate">
+                                        <label for="Address">Optional Tour Rate (Per Pax)</label>
+
+                                        {{#each travel.tourPrice.optionalTour}}
+                                            <div class="w-checkbox">
+                                                <input class="w-checkbox-input" data-name="Optional_1"
+                                                       value="{{this.optionalTourRateIn}}"
+                                                       more="{{this.optionalTourRateInNote}}" id="Optional{{@index}}"
+                                                       name="Optional_1" type="checkbox">
+                                                <label class="w-form-label"
+                                                       for="Optional{{@index}}">{{this.optionalTourRateInNote}}
+                                                    -${{this.optionalTourRateIn}}</label>
+                                            </div>
+                                        {{/each}}
+
+
+
+                                        <div>*Optional Tours can be purchased during the tour</div>
+                                    </form>
+
+                                    <!--<div class="form-wrapper-booking w-form">-->
+                                        <!--<label for="Address">Payment Method</label>-->
+                                        <!--<form data-name="Email Form" id="divMainPrice" name="email-form">-->
+
+                                            <!--<div class="w-radio">-->
+                                                <!--<input class="w-radio-input" data-name="TourRate"-->
+                                                       <!--id="wayYouPayment1"-->
+                                                       <!--name="TourRate" checked="checked" type="radio" value="payOnline">-->
+                                                <!--<label class="w-form-label"-->
+                                                       <!--for="wayYouPayment1">Pay Online</label>-->
+                                            <!--</div>-->
+                                            <!--<div class="w-radio">-->
+                                                <!--<input class="w-radio-input" data-name="TourRate"-->
+                                                     <!--id="wayYouPayment2"-->
+                                                       <!--name="TourRate" type="radio" value="payByBank">-->
+                                                <!--<label class="w-form-label"-->
+                                                       <!--for="wayYouPayment2">Pay by Bank</label>-->
+                                            <!--</div>-->
+
+
+                                        <!--</form>-->
+                                        <!--<div class="w-form-done">-->
+                                            <!--<div>Thank you! Your submission has been received!</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="w-form-fail">-->
+                                            <!--<div>Oops! Something went wrong while submitting the form</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+
+                                    <div class="w-form-done">
+                                        <div>Thank you! Your submission has been received!</div>
+                                    </div>
+                                    <div class="w-form-fail">
+                                        <div>Oops! Something went wrong while submitting the form</div>
+                                    </div>
+                                </div>
+                                <div class="view-tour-total-price-and-deposit">
+                                    <h6 class="smaller-title tourview-header under-dash white-color">TOTAL:</h6>
+                                    <div class="view-tour-total-price" id="total-price">${{totalPriveTour
+                                            travel.tourPrice}}</div>
+
+
+                                    {{{coupon travel.tourPrice.Rate.[0].tourRateIn}}}
+                                    <!--<div class="view-tour-minus-sign">-</div>-->
+                                    <!--<div class="coupon-deduction view-tour-total-price">{{coupon}}</div>-->
+                                    <!--<div class="view-tour-minus-sign">=</div>-->
+                                    <!--<div class="view-tour-total-price">$8000</div>-->
+
+
+                                    <h6 class="smaller-title tourview-header under-dash white-color" id="price">DEPOSIT
+                                        PAYABLE:</h6>
+                                    <div class="view-tour-deposit-amount">${{travel.depositPayable}}</div>
+
+
+                                    <div class="mini-term-and-con-text">1. You must pay us a non-refundable deposit of
+                                        the amount stated in the Tour Description (the “Deposit”) at the time of
+                                        booking. The Deposit is to be paid when the on-line booking form is filled up
+                                        and submitted to us. If you are making a booking for a Tour which is scheduled
+                                        to start in 4 weeks, you must pay us the full amount of the Tour Price
+                                    </div>
+                                    <div class="mini-term-and-con-text">2. Our receipt of the Deposit and the completed
+                                        booking form does not mean that your booking is confirmed and accepted. It is
+                                        only confirmed and accepted when we give you a written confirmation. This
+                                        written confirmation will also contain details on regarding the payment of the
+                                        balance of the Tour Price. However, if your booking is not accepted by us, we
+                                        will refund the Deposit which you have paid to us.
+                                    </div>
+                                    <div class="mini-term-and-con-text">3. If the balance of the Tour Price is not paid
+                                        by the dated specified in the written confirmation referred to in Clause 2, your
+                                        booking is deemed to be cancelled and we shall forfeit the Deposit.
+                                    </div>
+                                    <div class="mini-term-and-con-text">4. We conduct various Tours from time to time.
+                                        The price of each Tour will be specified on our website (“Tour Price”). However,
+                                        sometimes, due to external factors beyond our control (e.g. increase in
+                                        transport costs or food costs or tour leader’s fees or instructors’ fees or
+                                        currency fluctuations), the Tour Price may increase even after you have booked
+                                        for our Tours. Should there be any increase in the Tour Price after you have
+                                        placed your booking with us, we will notify you of the increase. You have the
+                                        option of either accepting the change in price or withdraw from the Tour. Should
+                                        you withdraw from the Tour, we will refund the Deposit to you.
+                                    </div>
+                                    <div class="mini-term-and-con-text"><strong>For more information about Unusual
+                                        Expedition Policies, please click "BOOKING TERMS AND CONDITIONS" button
+                                        below.</strong>
+                                    </div>
+                                </div>
+
+
+                                <div id="bookingbutton">
+                                    <button class="details-button termandcon w-button" method="bookviavisa">BOOK VIA VISA/MASTER CARD
+                                    </button>
+                                    <button class="details-button termandcon w-button" method="bookviaunion">BOOK VIA UNIONPAY
+                                    </button>
+                                    <button class="details-button termandcon w-button" method="bookviabank">BOOK VIA BANK TRANSFER
+                                    </button>
+                                </div>
+
+
+                                <form action="">
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <!-- End of BOOKING -->
+
+                    {{/with}}
+
+
+                    <!--TERM AND CONDITION -->
+                    <div class="tour-view-head-wrapper" id="termandcondiv">
+                        <img class="view-tour-part-icon"
+                             sizes="(max-width: 479px) 26px, 30px"
+                             src="/images/shaking-hands.png"
+                             srcset="/images/shaking-hands-p-500x500.png 500w, /images/shaking-hands.png 512w">
+                        <div>DISCLAIMER & TERMS AND CONDITIONS</div>
+                    </div>
+                    <div class="tour-view-content-wrapper">
+                        <p class="smaller-title tourview-header under-dash" id="price">DISCLAIMER:</p>
+                        <ul>
+                            <li>
+                                <div>These prices are correct as of December 2015.</div>
+                            </li>
+                            <li>
+                                <div>Flight Cost will be subjected to change. (If Applicable)</div>
+                            </li>
+                            <li>
+                                <div>Prices are subject to confirmation at the time of booking due to exchange rates
+                                    and other cost factors.
+                                </div>
+                            </li>
+                            <li>
+                                <div>All itinerary information is correct as of December 2015, but may be subject to
+                                    change.
+                                </div>
+                            </li>
+                            <li>
+                                <div>Please confirm all details at time of booking.</div>
+                            </li>
+                        </ul>
+                        <p class="smaller-title tourview-header under-dash">BOOKING TERMS AND CONDITIONs</p>
+                        <ul>
+                            <li>
+                                <div>Please note that you will be bound by the clause upon booking.</div>
+                            </li>
+                            <li>
+                                <div>For Full Booking Terms and Conditions, please click the button below</div>
+                            </li>
+                        </ul>
+                        {{#with data this travel}}
+                            <a class="details-button termandcon w-button" href="/singapore/termsandconditions">BOOKING
+                                TERMS AND
+                                CONDITIONS</a>
+                        {{/with}}
+                    </div>
+                    <!-- End of TERM AND CONDITION -->
+                </div>
+            </div>
+        </div>
+    {{/with}}
+
+
+    <div class="other-tours-section">
+        <div class="w-container">
+            <p class="travel-blog-typo">OTHER TOURS</p>
+            {{#with other}}
+                <div>
+                    <div class="w-row">
+                        {{#if other.[0]}}
+                            <div class="other-tour-wrapper">
+                                {{>othertour other.[0]}}
+                                {{>othertour other.[1]}}
+                                {{>othertour other.[2]}}
+                            </div>
+                        {{/if}}
+                    </div>
+                    <div class="w-row">
+                        {{#if other.[3]}}
+                            <div class="other-tour-wrapper">
+                                {{>othertour other.[3]}}
+                                {{>othertour other.[4]}}
+                                {{>othertour other.[5]}}
+                            </div>
+                        {{/if}}
+                    </div>
+
+                </div>
+            {{/with}}
+
+
+        </div>
+    </div>
+
+</template>

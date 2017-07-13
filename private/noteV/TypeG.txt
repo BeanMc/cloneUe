@@ -1,0 +1,6 @@
+Type G: mainly used in the United Kingdom, Ireland, Malta, Malaysia & Singapore ,
+        3 pins,
+        grounded,
+        13 A,
+        220 – 240 V,
+        socket compatible with plug type G,

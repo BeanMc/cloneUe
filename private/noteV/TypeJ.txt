@@ -1,0 +1,6 @@
+Type J: used almost exclusively in Switzerland, Liechtenstein & Rwanda,
+        3 pins,
+        grounded,
+        10 A,
+        220 – 240 V,
+        socket compatible with plug types C & J,

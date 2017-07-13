@@ -1,0 +1,57 @@
+<template name="viewtouron">
+    {{#with this}}
+        <div class="w-col w-col-4 w-col-stack">
+            <div class="upcoming-tour-div">
+                <div class="upcoming-tour-div-imgframe">
+                    <img class="upcoming-tour-img" src="/cfs/files/image/{{images}}">
+                </div>
+
+                {{{tourOptions earlyBookDueDate tourDateStart tourDateEnd maximum peopleInTravel fullPaymentDueDate minimum status }}}
+                <div class="view-all-tour-upcoming">UPCOMING TOUR</div>
+                <div class="upcoming-tour-destination view-all-tour">{{rawTour.[0].tourName}}</div>
+                <div class="view-all-tour-details">
+                    <div class="upcoming-tour-date-price-wrapper">
+                        <div class="upcoming-tour-date-wrapper">
+                            <div class="all-tour date-value">{{datetime tourDateStart}} </div>
+                            <div class="date-nonvalue">to</div>
+                            <div class="all-tour date-value">{{datetime tourDateEnd}}</div>
+                        </div>
+                        <div class="tour-money-amount view-all">${{price tourPrice}}*</div>
+                    </div>
+                    <a class="details-button upcoming-tour-page w-button"
+                       href="/singapore/viewtour?id={{this._id}}&tripid={{this.trip}}"> DETAILS</a>
+                </div>
+            </div>
+
+            <!-- OLD DESIGN
+                    <div class="w-row">
+                        <div class="w-col w-col-4 w-col-small-4 w-col-tiny-4">
+
+                            <div class="tour-money-amount view-all">${{tourPrice.totalPrice}}*</div>
+                            {{#if peopleInTravel}}
+                                <div class="trip-availability view-all">{{tourOptions earlyBookDueDate tourDateStart
+                                                                                      maximum peopleInTravel}}</div>
+                            {{else}}
+                                <div class="trip-availability view-all">{{tourOptions2 earlyBookDueDate tourDateStart}}</div>
+                            {{/if}}
+
+
+                        </div>
+                        <div class="w-col w-col-4 w-col-small-4 w-col-tiny- 4">
+                            <div class="view-all-tour-grid">
+                                <div class="all-tour date-value">{{datetime tourDateStart}} </div>
+                                <div class="date-nonvalue">to</div>
+                                <div class="all-tour date-value">{{datetime tourDateEnd}}</div>
+                            </div>
+                        </div>
+                        <div class="w-clearfix w-col w-col-4 w-col-small-4 w-col-tiny-4"><a
+                                class="details-button w-button" href="/viewtour?id={{this._id}}&tripid={{this.trip}}">DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                             -->
+
+        </div>
+    {{/with}}
+</template>

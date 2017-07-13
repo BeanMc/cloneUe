@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="286f7f9c-b98e-48c8-8202-08b959c975b3" name="dev.chord" url="http://dev.chord">
+        <fileTransfer host="dev.chord" port="22" rootFolder="/home/chord/cong" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="221ec769-88e4-45cf-92fa-c0cdab0da98e" name="viettel" url="http://vk1viettel.ddns.me">
+        <fileTransfer host="vk1viettel.ddns.me" port="2222" rootFolder="/home/chord" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="2222" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="b0e6c6bc-e0e2-470c-b579-126e29f46450" name="dev2" url="http://10.0.200.200">
+        <fileTransfer host="10.0.200.200" port="22" rootFolder="/home/chord/cong" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

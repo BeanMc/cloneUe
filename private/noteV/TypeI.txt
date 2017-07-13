@@ -1,0 +1,6 @@
+Type I: mainly used in Australia, New Zealand, China & Argentina ,
+        2 or 3 pins,
+        2 pins: not grounded / 3 pins: grounded,
+        10 A,
+        220 – 240 V,
+        socket compatible with plug type I,

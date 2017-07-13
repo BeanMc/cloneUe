@@ -1,0 +1,31 @@
+{
+  "appName": "ue",
+  "appLocation": {
+    "local": "/home/chord/cong/CloneUE",
+    "git": "",
+    "branch": "master"
+  },
+  "meteorSettingsLocation": "",
+  "meteorSettingsInRepo": false,
+  "prebuildScript": "",
+  "meteorBuildFlags": "--architecture os.linux.x86_64",
+  "env": {
+    "ROOT_URL": "http://dev.eznetcafe.com",
+    "PORT": 14500,
+    "MONGO_URL": "mongodb://localhost:27017/ue",
+    "MONGO_OPLOG_URL": "mongodb://localhost:27017/local?authSource=ue"
+  },
+  "server": {
+    "host": "dev.eznetcafe.com",
+    "username": "root",
+    "password": "ezgame123@",
+    "deploymentDir": "/opt/pm2-meteor",
+    "loadProfile": "",
+    "nvm": {
+      "bin": "",
+      "use": ""
+    },
+    "exec_mode": "cluster_mode",
+    "instances": -1
+  }
+}

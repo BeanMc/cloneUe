@@ -1,0 +1,97 @@
+<template name="gallery">
+
+    {{>pageNavbar}}
+
+    <div class="portfolio-body">
+        {{#each image}}
+            <style scoped>
+                @media screen and (min-width: 1441px) {
+                    .gridGalleryWeb {
+                        background-position: 50% 100%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 33.333%;
+                        height: 380px;
+                        float: left;
+                        border: 1px solid #ffffff;
+                        background-color: #000;
+                        position: relative;
+                    }
+                }
+
+                @media screen and (max-width: 1440px) and
+                (min-width: 1200px) {
+                    .gridGalleryWeb {
+                        background-position: 50% 100%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 33.333%;
+                        height: 300px;
+                        float: left;
+                        border: 1px solid #ffffff;
+                        background-color: #000;
+                    }
+                }
+
+                @media screen and (max-width: 1199px)
+                and (min-width: 960px) {
+                    .gridGalleryWeb {
+                        background-position: 50% 100%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 33.333%;
+                        height: 220px;
+                        float: left;
+                        border: 1px solid #ffffff;
+                        background-color: #000;
+                    }
+                }
+
+                @media screen and (max-width: 959px)
+                and (min-device-width: 668px) {
+                    .gridGalleryWeb {
+                        background-position: 50% 100%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 50vw;
+                        height: 250px;
+                        float: left;
+                        border: 1px solid #ffffff;
+                        background-color: #000;
+                    }
+                }
+
+                @media screen and (max-width: 667px) {
+                    .gridGalleryPhone {
+                        background-position: 50% 100%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 100vw;
+                        height: 250px;
+                        float: left;
+                        border: 1px solid #ffffff;
+                        background-color: #000;
+                        position: relative;
+                    }
+                }
+
+            </style>
+
+
+            <div data-uk-modal="{target:'#{{this.image}}'}">
+                <div class="gridGalleryWeb gridGalleryPhone uk-overlay uk-overlay-hover "
+                     style="background-image: url(/cfs/files/image/{{this.image}});">
+                    <div class="uk-overlay-panel uk-overlay-background uk-overlay-top">{{this.title}}</div>
+                    <!--<div class="gallery-title">{{this}}</div>-->
+                </div>
+            </div>
+            <div id="{{this.image}}" class="uk-modal uk-slidenav-position">
+                <div class="uk-modal-dialog uk-modal-dialog-lightbox">
+                    <a href="" class="uk-modal-close uk-close uk-close-alt"></a>
+                    <img src="/cfs/files/image/{{this.image}}" style="width: 100%; height: 100%;">
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+</template>

@@ -1,0 +1,6 @@
+Type F: used almost everywhere in Europe & Russia, except for the UK & Ireland ,
+        2 pins,
+        grounded,
+        16 A,
+        220 – 240 V,
+        socket compatible with plug types C, E & F,

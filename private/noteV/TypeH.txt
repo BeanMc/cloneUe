@@ -1,0 +1,6 @@
+Type H: used exclusively in Israel, the West Bank & the Gaza Strip,
+        3 pins,
+        grounded,
+        16 A,
+        220 – 240 V,
+        socket compatible with plug types C & H (unsafe compatibility with E & F),

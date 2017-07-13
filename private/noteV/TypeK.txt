@@ -1,0 +1,6 @@
+Type K: used almost exclusively in Denmark & Greenland,
+        3 pins,
+        grounded,
+        16 A,
+        220 – 240 V,
+        socket compatible with plug types C & K (unsafe compatibility with E & F),

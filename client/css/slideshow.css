@@ -1,0 +1,24 @@
+.w-slide {
+    transition: transform 300ms;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: initial;
+    transition-delay: initial;
+}
+
+
+#slideimage div:first-child{
+    display: block;
+    transition: transform 300ms;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: initial;
+    transition-delay: initial;
+}
+
+#slideimagehome div{
+    display: none;
+}
+#slideimagehome div:first-child{
+    display: block;
+}

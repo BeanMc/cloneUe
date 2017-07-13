@@ -1,0 +1,17 @@
+<template name="othertour">
+    {{#if this}}
+        <div class="w-col w-col-4">
+            <div>
+                <a style="height: 100%;width: 100%" class="w-inline-block"
+                   href="/viewtour?id={{this._id}}&tripid={{this.trip}}#tour-view-top">
+                    <img style="width: 100%"
+                         sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 229.328125px, 299.984375px"
+                         src="/cfs/files/image/{{imageAvailable this.trip}}"
+                         srcset="/cfs/files/image/{{imageAvailable this.trip}} 500w, /cfs/files/image/{{imageAvailable
+                                 this.trip}} 800w, /cfs/files/image/{{imageAvailable this.trip}} 1024w">
+                    <div>{{name this.trip}}</div>
+                </a>
+            </div>
+        </div>
+    {{/if}}
+</template>
