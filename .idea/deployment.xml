@@ -15,7 +15,6 @@
             <mapping deploy="/ClientUE" local="$PROJECT_DIR$" web="/" />
           </mappings>
           <excludedPaths>
-            <excludedPath path="/ClientUE/.meteor/local" />
             <excludedPath path="/ClientUE/.meteor/.finished-upgraders" />
             <excludedPath path="/ClientUE/.meteor/.gitignore" />
             <excludedPath path="/ClientUE/.meteor/.id" />
